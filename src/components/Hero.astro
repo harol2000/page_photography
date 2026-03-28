@@ -1,108 +1,200 @@
-<section class="hero">
-  <img
-    src="https://harol2000.github.io/page_photography/images/portada.png"
-    alt="Portada principal"
-    class="hero-bg"
-  />
-  <div class="hero-overlay"></div>
+<header class="header">
+  <div class="container header-inner">
+    <a href="https://harol2000.github.io/page_photography/" class="brand">
+      <img
+        src="https://harol2000.github.io/page_photography/images/logo.png"
+        alt="Logo"
+        class="brand-logo"
+      />
+    </a>
 
-  <div class="container hero-content">
-    <p class="eyebrow hero-eyebrow">Fotografía con esencia natural</p>
+    <button
+      class="menu-toggle"
+      type="button"
+      aria-label="Abrir menú"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
 
-    <h1>
-      Tu historia <br />
-      a través de mi lente
-    </h1>
-
-    <div class="hero-actions">
-      <a
-        href="https://harol2000.github.io/page_photography/galeria/"
-        class="btn btn-primary"
-      >
-        Ver portafolio
-      </a>
-      <a
-        href="https://harol2000.github.io/page_photography/contacto/"
-        class="btn btn-outline"
-      >
-        Reservar sesión
-      </a>
-    </div>
+    <nav class="nav desktop-nav">
+      <a href="https://harol2000.github.io/page_photography/" class="nav-link is-active">Inicio</a>
+      <a href="https://harol2000.github.io/page_photography/galeria/" class="nav-link">Galería</a>
+      <a href="https://harol2000.github.io/page_photography/paquetes/" class="nav-link">Paquetes</a>
+      <a href="https://harol2000.github.io/page_photography/contacto/" class="nav-link">Contacto</a>
+    </nav>
   </div>
-</section>
+
+  <nav class="mobile-nav" id="mobile-menu">
+    <a href="https://harol2000.github.io/page_photography/">Inicio</a>
+    <a href="https://harol2000.github.io/page_photography/galeria/">Galería</a>
+    <a href="https://harol2000.github.io/page_photography/paquetes/">Paquetes</a>
+    <a href="https://harol2000.github.io/page_photography/contacto/">Contacto</a>
+  </nav>
+</header>
+
+<script>
+  const toggle = document.querySelector(".menu-toggle");
+  const mobileMenu = document.querySelector(".mobile-nav");
+
+  if (toggle && mobileMenu) {
+    toggle.addEventListener("click", () => {
+      const isOpen = mobileMenu.classList.toggle("is-open");
+      toggle.setAttribute("aria-expanded", String(isOpen));
+    });
+  }
+</script>
 
 <style>
-  .hero {
-    position: relative;
-    min-height: 90vh;
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: 60;
+    background: rgba(247, 244, 241, 0.98);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(120, 110, 100, 0.12);
+  }
+
+  .header-inner {
+    min-height: 108px;
     display: grid;
-    place-items: center;
-    overflow: hidden;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 2rem;
   }
 
-  .hero-bg {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+  .brand {
+    display: inline-flex;
+    align-items: center;
+    justify-self: start;
   }
 
-  .hero-overlay {
-    position: absolute;
-    inset: 0;
-    background:
-      linear-gradient(to top, rgba(0,0,0,.5), rgba(0,0,0,.18)),
-      linear-gradient(to right, rgba(0,0,0,.2), rgba(0,0,0,.05));
+  .brand-logo {
+    height: 58px;
+    width: auto;
+    display: block;
+    object-fit: contain;
   }
 
-  .hero-content {
-    position: relative;
-    z-index: 2;
-    text-align: center;
-    color: white;
-    max-width: 900px;
-    transform: translateY(-210px);
-  }
-
-  .hero h1 {
-    font-size: clamp(2.5rem, 7vw, 5.8rem);
-    line-height: .95;
-    margin-bottom: 1rem;
-  }
-
-  .hero p:not(.hero-eyebrow) {
-    max-width: 720px;
-    margin: 0 auto;
-    font-size: clamp(1rem, 2vw, 1.2rem);
-    color: rgba(255,255,255,.92);
-  }
-
-  .hero-actions {
+  .desktop-nav {
     display: flex;
     justify-content: center;
+    align-items: flex-start;
     gap: 1rem;
-    flex-wrap: wrap;
-    margin-top: 2rem;
+    justify-self: center;
   }
 
-  .hero-eyebrow {
-    color: rgba(255,255,255,.88);
+  .nav-link {
+    position: relative;
+    min-width: 120px;
+    padding-top: 1.7rem;
+    text-align: center;
+    color: #928d87;
+    font-size: 1.02rem;
+    font-weight: 400;
+    letter-spacing: 0.01em;
+    transition: color 0.25s ease;
   }
 
-  @media (max-width: 768px) {
-    .hero-content {
-      transform: translateY(-40px);
-      padding-inline: 1rem;
+  .nav-link::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 112px;
+    height: 2px;
+    background: #8d8a84;
+    opacity: 0.7;
+    transition: all 0.25s ease;
+  }
+
+  .nav-link:hover {
+    color: #7f9898;
+  }
+
+  .nav-link:hover::before,
+  .nav-link.is-active::before {
+    background: #8ea1a1;
+    opacity: 1;
+  }
+
+  .nav-link.is-active {
+    color: #8ea1a1;
+  }
+
+  .menu-toggle {
+    display: none;
+    width: 46px;
+    height: 46px;
+    border: 1px solid rgba(120, 110, 100, 0.18);
+    border-radius: 12px;
+    background: white;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+  }
+
+  .menu-toggle span {
+    width: 20px;
+    height: 2px;
+    background: #5d5751;
+    display: block;
+    border-radius: 999px;
+  }
+
+  .mobile-nav {
+    display: none;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 0 1.2rem 1.4rem;
+    width: min(var(--container), calc(100% - 2rem));
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .mobile-nav a {
+    color: #6f6962;
+    font-size: 1rem;
+  }
+
+  .mobile-nav.is-open {
+    display: flex;
+  }
+
+  @media (max-width: 1100px) {
+    .nav-link {
+      min-width: 98px;
+      font-size: 0.96rem;
     }
 
-    .hero h1 {
-      font-size: clamp(2.2rem, 10vw, 3.8rem);
+    .nav-link::before {
+      width: 92px;
+    }
+  }
+
+  @media (max-width: 860px) {
+    .header-inner {
+      min-height: 82px;
+      grid-template-columns: 1fr auto;
     }
 
-    .hero-actions .btn {
-      width: 100%;
-      max-width: 320px;
+    .desktop-nav {
+      display: none;
+    }
+
+    .menu-toggle {
+      display: inline-flex;
+      justify-self: end;
+    }
+
+    .brand-logo {
+      height: 48px;
     }
   }
 </style>
