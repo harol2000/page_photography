@@ -2,10 +2,10 @@
 const {
   eyebrow = "Me inspiran",
   title = "Los detalles que hacen única cada historia",
-  text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-  imageLeft = "/images/bodas.png",
-  imageCenter = "/images/retratos.png",
-  imageRight = "/images/quinceanios.png",
+  text = "Texto de ejemplo",
+  imageLeft = "",
+  imageCenter = "",
+  imageRight = "",
   reverse = false
 } = Astro.props;
 ---
@@ -19,9 +19,9 @@ const {
     </div>
 
     <div class="story-images">
-      <img src={imageLeft} alt="Imagen 1" />
-      <img src={imageCenter} alt="Imagen 2" />
-      <img src={imageRight} alt="Imagen 3" />
+      <img src={imageLeft} alt="Imagen 1" loading="lazy" />
+      <img src={imageCenter} alt="Imagen 2" loading="lazy" />
+      <img src={imageRight} alt="Imagen 3" loading="lazy" />
     </div>
   </div>
 </section>
@@ -62,6 +62,7 @@ const {
     object-fit: cover;
     border-radius: 20px;
     box-shadow: var(--shadow);
+    display: block;
   }
 
   @media (max-width: 900px) {
