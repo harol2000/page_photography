@@ -1,0 +1,77 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+const photos = [
+  "/images/bodas.png",
+  "/images/quinceanios.png",
+  "/images/retratos.png",
+  "/images/infantiles.png",
+  "/images/corporativos.png",
+  "/images/bodas.png",
+  "/images/retratos.png",
+  "/images/quinceanios.png",
+];
+---
+
+<MainLayout title="Galería | Tu Marca">
+  <Header />
+
+  <section class="section">
+    <div class="container">
+      <p class="eyebrow">Portafolio</p>
+      <h1 class="title">Galería</h1>
+      <p class="text intro">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+      </p>
+
+      <div class="gallery-grid">
+        {photos.map((photo, i) => (
+          <figure class="gallery-item">
+            <img src={photo} alt={`Foto ${i + 1}`} />
+          </figure>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</MainLayout>
+
+<style>
+  .intro {
+    max-width: 680px;
+    margin-bottom: 2rem;
+  }
+
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+  }
+
+  .gallery-item {
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+  }
+
+  .gallery-item img {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+  }
+
+  @media (max-width: 980px) {
+    .gallery-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .gallery-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

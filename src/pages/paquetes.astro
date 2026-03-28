@@ -1,0 +1,83 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<MainLayout title="Paquetes | Tu Marca">
+  <Header />
+
+  <section class="section">
+    <div class="container">
+      <p class="eyebrow">Paquetes</p>
+      <h1 class="title">Opciones para cada ocasión</h1>
+
+      <div class="packages-grid">
+        <article class="package">
+          <span>Básico</span>
+          <h2>Sesión personal</h2>
+          <p>Ideal para retratos, contenido personal y sesiones casuales.</p>
+        </article>
+
+        <article class="package featured">
+          <span>Más solicitado</span>
+          <h2>Bodas & eventos</h2>
+          <p>Una cobertura pensada para preservar cada instante importante.</p>
+        </article>
+
+        <article class="package">
+          <span>Marca</span>
+          <h2>Corporativo</h2>
+          <p>Fotografía de productos, branding y contenido visual empresarial.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</MainLayout>
+
+<style>
+  .packages-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+
+  .package {
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 24px;
+    padding: 1.5rem;
+    box-shadow: var(--shadow);
+  }
+
+  .package span {
+    display: inline-block;
+    margin-bottom: 1rem;
+    font-size: .75rem;
+    text-transform: uppercase;
+    letter-spacing: .15em;
+    color: var(--muted);
+  }
+
+  .package h2 {
+    font-size: 1.7rem;
+    margin-bottom: .7rem;
+  }
+
+  .featured {
+    background: linear-gradient(180deg, #8b6f5a, #735846);
+    color: white;
+  }
+
+  .featured span {
+    color: rgba(255,255,255,.9);
+  }
+
+  @media (max-width: 900px) {
+    .packages-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

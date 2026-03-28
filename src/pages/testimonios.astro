@@ -1,0 +1,69 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<MainLayout title="Testimonios | Tu Marca">
+  <Header />
+
+  <section class="section">
+    <div class="container">
+      <p class="eyebrow">Testimonios</p>
+      <h1 class="title">Lo que dicen mis clientes</h1>
+
+      <div class="grid">
+        <article>
+          <p>“Nos encantó la forma en que capturó cada momento. Las fotos se ven
+          naturales y muy emotivas.”</p>
+          <h3>Andrea & Luis</h3>
+        </article>
+
+        <article>
+          <p>“Muy profesional, paciente y con una visión artística hermosa. El
+          resultado superó nuestras expectativas.”</p>
+          <h3>Camila</h3>
+        </article>
+
+        <article>
+          <p>“Nos hizo sentir cómodos desde el inicio. La sesión fue fluida y las
+          imágenes quedaron espectaculares.”</p>
+          <h3>María José</h3>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</MainLayout>
+
+<style>
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+
+  article {
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 22px;
+    padding: 1.4rem;
+    box-shadow: var(--shadow);
+  }
+
+  article p {
+    margin-bottom: 1rem;
+    color: #56504a;
+  }
+
+  article h3 {
+    color: var(--accent-dark);
+  }
+
+  @media (max-width: 900px) {
+    .grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

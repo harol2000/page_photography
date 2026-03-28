@@ -1,0 +1,83 @@
+<section class="hero">
+  <img src="/images/portada.png" alt="Portada principal" class="hero-bg" />
+  <div class="hero-overlay"></div>
+
+  <div class="container hero-content">
+    <p class="eyebrow hero-eyebrow">Fotografía con esencia natural</p>
+
+    <h1>
+      Tu historia <br />
+      a través de mi lente
+    </h1>
+
+    <p>
+      
+    </p>
+
+    <div class="hero-actions">
+      <a href="/galeria" class="btn btn-primary">Ver portafolio</a>
+      <a href="/contacto" class="btn btn-outline">Reservar sesión</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    position: relative;
+    min-height: 90vh;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(to top, rgba(0,0,0,.5), rgba(0,0,0,.18)),
+      linear-gradient(to right, rgba(0,0,0,.2), rgba(0,0,0,.05));
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: white;
+    max-width: 900px;
+    transform: translateY(-210px);
+    
+  }
+
+  .hero h1 {
+    font-size: clamp(2.5rem, 7vw, 5.8rem);
+    line-height: .95;
+    margin-bottom: 1rem;
+  }
+
+  .hero p:not(.hero-eyebrow) {
+    max-width: 720px;
+    margin: 0 auto;
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    color: rgba(255,255,255,.92);
+  }
+
+  .hero-actions {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+  }
+
+  .hero-eyebrow {
+    color: rgba(255,255,255,.88);
+  }
+</style>

@@ -1,0 +1,70 @@
+<section id="testimonios" class="section testimonials">
+  <div class="container">
+    <div class="services-heading">
+      <p class="eyebrow">Testimonios</p>
+      <h2 class="section-title">Lo que dicen mis clientes</h2>
+    </div>
+
+    <div class="testimonials-grid">
+      <article>
+        <p>
+          “Nos encantó la forma en que capturó cada momento. Las fotos se ven
+          naturales y muy emotivas.”
+        </p>
+        <h3>Andrea & Luis</h3>
+      </article>
+
+      <article>
+        <p>
+          “Muy profesional, paciente y con una visión artística hermosa. El
+          resultado superó nuestras expectativas.”
+        </p>
+        <h3>Camila</h3>
+      </article>
+
+      <article>
+        <p>
+          “Nos hizo sentir cómodos desde el inicio. La sesión fue fluida y las
+          imágenes quedaron espectaculares.”
+        </p>
+        <h3>María José</h3>
+      </article>
+    </div>
+  </div>
+</section>
+
+<style>
+  .testimonials {
+    background: #f0ebe6;
+  }
+
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+
+  .testimonials-grid article {
+    background: white;
+    padding: 1.4rem;
+    border-radius: 22px;
+    border: 1px solid var(--line);
+    box-shadow: var(--shadow);
+  }
+
+  .testimonials-grid p {
+    color: #4f4944;
+    margin-bottom: 1rem;
+  }
+
+  .testimonials-grid h3 {
+    color: var(--accent-dark);
+    font-size: 1rem;
+  }
+
+  @media (max-width: 900px) {
+    .testimonials-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

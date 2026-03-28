@@ -1,0 +1,104 @@
+<section id="paquetes" class="section">
+  <div class="container">
+    <div class="services-heading">
+      <p class="eyebrow">Paquetes</p>
+      <h2 class="section-title">Opciones para cada ocasión</h2>
+    </div>
+
+    <div class="packages-grid">
+      <article class="package">
+        <span>Básico</span>
+        <h3>Sesión personal</h3>
+        <p>Ideal para retratos, contenido personal y sesiones casuales.</p>
+        <ul>
+          <li>1 locación</li>
+          <li>Entrega digital</li>
+          <li>Edición profesional</li>
+        </ul>
+      </article>
+
+      <article class="package featured">
+        <span>Más solicitado</span>
+        <h3>Bodas & eventos</h3>
+        <p>Una cobertura pensada para preservar cada instante importante.</p>
+        <ul>
+          <li>Cobertura completa</li>
+          <li>Selección premium</li>
+          <li>Entrega digital + teaser</li>
+        </ul>
+      </article>
+
+      <article class="package">
+        <span>Marca</span>
+        <h3>Corporativo</h3>
+        <p>Fotografía de productos, branding y contenido visual empresarial.</p>
+        <ul>
+          <li>Sesión en negocio o estudio</li>
+          <li>Fotografía de producto</li>
+          <li>Archivos para redes</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<style>
+  .packages-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+
+  .package {
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 24px;
+    padding: 1.5rem;
+    box-shadow: var(--shadow);
+  }
+
+  .package span {
+    display: inline-block;
+    font-size: 0.74rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--muted);
+    margin-bottom: 1rem;
+  }
+
+  .package h3 {
+    font-size: 1.7rem;
+    margin-bottom: 0.7rem;
+  }
+
+  .package p {
+    color: #5b5550;
+    margin-bottom: 1rem;
+  }
+
+  .package ul {
+    padding-left: 1.1rem;
+    color: #433d38;
+  }
+
+  .package li + li {
+    margin-top: 0.5rem;
+  }
+
+  .featured {
+    background: linear-gradient(180deg, #8b6f5a, #735846);
+    color: white;
+  }
+
+  .featured span,
+  .featured p,
+  .featured ul {
+    color: rgba(255,255,255,0.92);
+  }
+
+  @media (max-width: 900px) {
+    .packages-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

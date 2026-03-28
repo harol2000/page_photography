@@ -1,0 +1,106 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+const services = [
+  { title: "Boda civil", image: "/images/624059371_122108713671204129_2529362716314304643_n.jpg" },
+  { title: "Boda religiosa", image: "/images/622259064_122108712627204129_4483227771510883107_n.jpg" },
+  { title: "Sesión preboda", image: "/images/624535049_122108716299204129_1624264578338389553_n.jpg" },
+  { title: "Sesión postboda", image: "/images/624406731_122108717193204129_4519717868385406808_n.jpg" },
+  { title: "Cobertura de recepción", image: "/images/622359896_122108711961204129_8171615373665783138_n.jpg" },
+  { title: "Paquete completo", image: "/images/622727017_122108717235204129_6272086216731972065_n.jpg" },
+];
+---
+
+<MainLayout title="Servicios | Tu Marca">
+  <Header />
+
+  <section class="section">
+    <div class="container">
+      <p class="eyebrow">Especialidades</p>
+      <h1 class="title">Servicios fotográficos</h1>
+      <p class="text intro">
+        Ofrezco soluciones fotográficas integrales adaptadas a cada momento de tu boda. Explora nuestras especialidades diseñadas para cubrir desde sesiones previas hasta la cobertura total de tu evento con la más alta calidad visual.
+      </p>
+
+      <div class="services-grid">
+        {services.map((service) => (
+          <article class="service-card">
+            <div class="service-image-wrap">
+              <img src={service.image} alt={service.title} class="service-image" />
+            </div>
+
+            <div class="service-content">
+              <h2>{service.title}</h2>
+              <a href="/contacto">Consultar sesión</a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</MainLayout>
+
+<style>
+  .intro {
+    max-width: 680px;
+    margin-bottom: 2rem;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.3rem;
+  }
+
+  .service-card {
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 22px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+  }
+
+  .service-image-wrap {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+    background: #ddd;
+  }
+
+  .service-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .service-content {
+    padding: 1rem 1rem 1.2rem;
+  }
+
+  .service-content h2 {
+    font-size: 1.6rem;
+    margin-bottom: .5rem;
+  }
+
+  .service-content a {
+    color: var(--accent-dark);
+    font-weight: 700;
+  }
+
+  @media (max-width: 980px) {
+    .services-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 640px) {
+    .services-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

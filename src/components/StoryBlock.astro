@@ -1,0 +1,82 @@
+---
+const {
+  eyebrow = "Me inspiran",
+  title = "Los detalles que hacen única cada historia",
+  text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+  imageLeft = "/images/bodas.png",
+  imageCenter = "/images/retratos.png",
+  imageRight = "/images/quinceanios.png",
+  reverse = false
+} = Astro.props;
+---
+
+<section class="section">
+  <div class={`container story ${reverse ? 'reverse' : ''}`}>
+    <div class="story-text">
+      <p class="eyebrow">{eyebrow}</p>
+      <h2 class="title">{title}</h2>
+      <p class="text">{text}</p>
+    </div>
+
+    <div class="story-images">
+      <img src={imageLeft} alt="Imagen 1" />
+      <img src={imageCenter} alt="Imagen 2" />
+      <img src={imageRight} alt="Imagen 3" />
+    </div>
+  </div>
+</section>
+
+<style>
+  .story {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 2rem;
+    align-items: center;
+  }
+
+  .story.reverse {
+    grid-template-columns: 1.2fr 1fr;
+  }
+
+  .story.reverse .story-text {
+    order: 2;
+  }
+
+  .story.reverse .story-images {
+    order: 1;
+  }
+
+  .story-text .text {
+    max-width: 560px;
+  }
+
+  .story-images {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+
+  .story-images img {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+  }
+
+  @media (max-width: 900px) {
+    .story,
+    .story.reverse {
+      grid-template-columns: 1fr;
+    }
+
+    .story.reverse .story-text,
+    .story.reverse .story-images {
+      order: initial;
+    }
+
+    .story-images {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

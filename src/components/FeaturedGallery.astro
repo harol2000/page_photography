@@ -1,0 +1,80 @@
+---
+const photos = [
+  "/images/bodas.png",
+  "/images/quinceanios.png",
+  "/images/retratos.png",
+  "/images/infantiles.png",
+  "/images/corporativos.png",
+  "/images/bodas.png",
+];
+---
+
+<section id="galeria" class="section">
+  <div class="container">
+    <div class="gallery-head">
+      <p class="eyebrow">Momentos destacados</p>
+      <h2 class="section-title">Una mirada a cada historia</h2>
+    </div>
+
+    <div class="gallery-grid">
+      {photos.map((photo, i) => (
+        <figure class={`gallery-item item-${(i % 6) + 1}`}>
+          <img src={photo} alt={`Galería ${i + 1}`} />
+        </figure>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .gallery-head {
+    margin-bottom: 2rem;
+  }
+
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 1rem;
+  }
+
+  .gallery-item {
+    overflow: hidden;
+    border-radius: 22px;
+    box-shadow: var(--shadow);
+    min-height: 220px;
+  }
+
+  .gallery-item img {
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+  }
+
+  .gallery-item:hover img {
+    transform: scale(1.04);
+  }
+
+  .item-1 { grid-column: span 4; aspect-ratio: 4 / 5; }
+  .item-2 { grid-column: span 4; aspect-ratio: 4 / 5; }
+  .item-3 { grid-column: span 4; aspect-ratio: 4 / 5; }
+  .item-4 { grid-column: span 6; aspect-ratio: 16 / 10; }
+  .item-5 { grid-column: span 3; aspect-ratio: 4 / 5; }
+  .item-6 { grid-column: span 3; aspect-ratio: 4 / 5; }
+
+  @media (max-width: 900px) {
+    .item-1, .item-2, .item-3, .item-4, .item-5, .item-6 {
+      grid-column: span 6;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .gallery-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .item-1, .item-2, .item-3, .item-4, .item-5, .item-6 {
+      grid-column: auto;
+      aspect-ratio: 4 / 5;
+    }
+  }
+</style>

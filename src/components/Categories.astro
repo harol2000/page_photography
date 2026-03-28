@@ -1,0 +1,49 @@
+---
+const services = [
+  { title: "Quinceaños", image: "/images/quinceanios.png" },
+  { title: "Retratos", image: "/images/retratos.png" },
+  { title: "Bodas", image: "/images/bodas.png" },
+  { title: "Corporativos", image: "/images/corporativos.png" },
+  { title: "Infantiles", image: "/images/infantiles.png" },
+  { title: "Sesiones especiales", image: "/images/retratos.png" },
+];
+---
+
+<section id="categorias" style="padding:70px 0;">
+  <div class="container">
+    <div style="text-align:center; margin-bottom:40px;">
+      <p style="text-transform:uppercase; letter-spacing:3px; color:#777; margin-bottom:10px;">
+        Especialidades
+      </p>
+      <h2 style="font-size:clamp(1.8rem, 4vw, 3rem);">
+        Servicios fotográficos
+      </h2>
+    </div>
+
+    <div
+      style="
+        display:grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap:24px;
+      "
+    >
+      {services.map((service) => (
+        <article style="background:#fff; border:1px solid #e9e9e9; overflow:hidden; box-shadow:0 8px 20px rgba(0,0,0,.05);">
+          <div style="height:420px; overflow:hidden;">
+            <img
+              src={service.image}
+              alt={service.title}
+              style="width:100%; height:100%; object-fit:cover;"
+            />
+          </div>
+
+          <div style="padding:18px; text-align:center;">
+            <h3 style="font-size:1.8rem; font-weight:800; color:#444; text-transform:uppercase;">
+              {service.title}
+            </h3>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,62 @@
+<section id="contacto" class="section contact-section">
+  <div class="container contact-box">
+    <div>
+      <p class="eyebrow">Contacto</p>
+      <h2 class="section-title">¿Listo para crear algo especial?</h2>
+      <p class="section-text">
+        Escríbeme para consultar disponibilidad, paquetes y propuestas
+        personalizadas para tu sesión o evento.
+      </p>
+    </div>
+
+    <div class="contact-actions">
+      <a href="https://wa.me/51999999999" target="_blank" class="btn btn-primary">
+        WhatsApp
+      </a>
+      <a href="mailto:correo@tumarca.com" class="btn email-btn">
+        correo@tumarca.com
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .contact-section {
+    padding-top: 2rem;
+  }
+
+  .contact-box {
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 28px;
+    padding: 2rem;
+    box-shadow: var(--shadow);
+    display: grid;
+    grid-template-columns: 1.2fr auto;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .contact-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+
+  .email-btn {
+    border: 1px solid var(--line);
+    background: #faf8f6;
+    color: #3e3934;
+  }
+
+  @media (max-width: 900px) {
+    .contact-box {
+      grid-template-columns: 1fr;
+    }
+
+    .contact-actions {
+      justify-content: flex-start;
+    }
+  }
+</style>

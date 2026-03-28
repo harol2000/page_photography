@@ -1,0 +1,169 @@
+<header class="header">
+  <div class="container header-inner">
+    <a href="/" class="brand">
+      <img src="/images/logo.png" alt="Logo" class="brand-logo" />
+    </a>
+
+    <button
+      class="menu-toggle"
+      type="button"
+      aria-label="Abrir menú"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav class="nav desktop-nav">
+      <a href="/">Inicio</a>
+      <a href="/servicios">Servicios</a>
+      <a href="/galeria">Galería</a>
+      <a href="/testimonios">Testimonios</a>
+      <a href="/paquetes">Paquetes</a>
+      <a href="/contacto">Contacto</a>
+    </nav>
+  </div>
+
+  <nav class="mobile-nav" id="mobile-menu">
+    <a href="/">Inicio</a>
+    <a href="/servicios">Servicios</a>
+    <a href="/galeria">Galería</a>
+    <a href="/testimonios">Testimonios</a>
+    <a href="/paquetes">Paquetes</a>
+    <a href="/contacto">Contacto</a>
+  </nav>
+</header>
+
+<script>
+  const toggle = document.querySelector(".menu-toggle");
+  const mobileMenu = document.querySelector(".mobile-nav");
+
+  if (toggle && mobileMenu) {
+    toggle.addEventListener("click", () => {
+      const isOpen = mobileMenu.classList.toggle("is-open");
+      toggle.setAttribute("aria-expanded", String(isOpen));
+    });
+  }
+</script>
+
+<style>
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(247, 244, 241, 0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .header-inner {
+    min-height: 78px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .brand {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .brand-logo {
+    height: 52px;
+    width: auto;
+    display: block;
+    transition: transform 0.25s ease, filter 0.25s ease;
+    transform-origin: left center;
+  }
+
+  .brand:hover .brand-logo {
+    transform: scale(1.08);
+    filter: brightness(1.03);
+  }
+
+  .nav {
+    display: flex;
+    gap: 1rem 1.2rem;
+    color: #4b4540;
+    align-items: center;
+  }
+
+  .nav a,
+  .mobile-nav a {
+    position: relative;
+    color: #4b4540;
+  }
+
+  .nav a::after,
+  .mobile-nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -0.2rem;
+    width: 0;
+    height: 2px;
+    background: var(--accent);
+    transition: width 0.25s ease;
+  }
+
+  .nav a:hover::after,
+  .mobile-nav a:hover::after {
+    width: 100%;
+  }
+
+  .menu-toggle {
+    display: none;
+    width: 46px;
+    height: 46px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: white;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+  }
+
+  .menu-toggle span {
+    width: 20px;
+    height: 2px;
+    background: #4b4540;
+    display: block;
+    border-radius: 999px;
+  }
+
+  .mobile-nav {
+    display: none;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 0 1rem 1rem;
+    width: min(var(--container), calc(100% - 2rem));
+    margin: 0 auto;
+  }
+
+  .mobile-nav.is-open {
+    display: flex;
+  }
+
+  @media (max-width: 860px) {
+    .desktop-nav {
+      display: none;
+    }
+
+    .menu-toggle {
+      display: inline-flex;
+    }
+
+    .header-inner {
+      min-height: 72px;
+    }
+
+    .brand-logo {
+      height: 44px;
+    }
+  }
+</style>
