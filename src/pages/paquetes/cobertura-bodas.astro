@@ -1,1 +1,187 @@
 
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+
+const base = "https://harol2000.github.io/page_photography/";
+---
+
+<MainLayout title="Cobertura de Bodas | Tu Marca">
+  <Header />
+
+  <section class="package-detail">
+    <div class="container narrow">
+      <h1 class="main-title">Cobertura de Bodas</h1>
+      <p class="intro">
+        El día de la boda es una colección de momentos irrepetibles que suceden uno tras otro. Cada gesto, cada expresión y cada detalle forman una historia única que merece ser contada con sensibilidad y belleza.
+      </p>
+
+      <div class="prices">
+        <div>
+          <h2>US $1,500</h2>
+          <p>Short Wedding</p>
+          <p>4 horas</p>
+        </div>
+        <div>
+          <h2>US $3,500</h2>
+          <p>Full Wedding</p>
+          <p>10 horas</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="split-block">
+      <img src={`${base}images/622259064_122108712627204129_4483227771510883107_n.jpg`} alt="Cobertura de bodas" />
+      <div class="split-copy">
+        <p>
+          Se realiza la cobertura de la boda con todos los eventos importantes que esta conlleva.
+        </p>
+        <p><strong>Short Wedding</strong><br />4 hrs. | 1 fotógrafo</p>
+        <p><strong>Full Wedding</strong><br />10 hrs. | 2 fotógrafos</p>
+      </div>
+    </div>
+
+    <div class="split-block reverse">
+      <div class="split-copy">
+        <p>
+          Se entrega una galería online con las fotos editadas.
+        </p>
+        <p>Un mínimo de 500 fotos.</p>
+      </div>
+      <img src={`${base}images/622727017_122108717235204129_6272086216731972065_n.jpg`} alt="Galería online" />
+    </div>
+
+    <div class="terms">
+      <div class="container narrow">
+        <h2>Términos & Condiciones</h2>
+
+        <div class="terms-grid">
+          <article>
+            <p>La cantidad de fotos a entregar depende de la magnitud del evento.</p>
+          </article>
+          <article>
+            <p>Forma de pago: 30% para reservar y 70% una semana antes del evento.</p>
+          </article>
+          <article>
+            <p>El costo de transporte se calcula según el destino.</p>
+          </article>
+          <article>
+            <p>Planes válidos según disponibilidad y agenda.</p>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</MainLayout>
+
+<style>
+  .package-detail {
+    padding: 4rem 0 0;
+  }
+
+  .narrow {
+    max-width: 980px;
+    margin-inline: auto;
+    text-align: center;
+  }
+
+  .main-title {
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    font-weight: 300;
+    color: #8aa0a0;
+    margin-bottom: 1rem;
+  }
+
+  .intro {
+    max-width: 760px;
+    margin: 0 auto 2.5rem;
+    font-size: 1.2rem;
+    line-height: 1.7;
+  }
+
+  .prices {
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+    flex-wrap: wrap;
+    margin-bottom: 4rem;
+  }
+
+  .prices h2 {
+    font-size: 3rem;
+    font-weight: 300;
+    color: #8aa0a0;
+    margin-bottom: .5rem;
+  }
+
+  .split-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: stretch;
+    margin-top: 1px;
+  }
+
+  .split-block.reverse {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .split-block img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    min-height: 420px;
+    display: block;
+  }
+
+  .split-copy {
+    display: grid;
+    place-items: center;
+    padding: 3rem;
+    text-align: center;
+    font-size: 1.25rem;
+    line-height: 1.7;
+    background: #f7f5f2;
+  }
+
+  .terms {
+    padding: 4rem 0;
+  }
+
+  .terms h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 300;
+    color: #8aa0a0;
+    margin-bottom: 2rem;
+  }
+
+  .terms-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .terms-grid article {
+    background: #efe3d8;
+    padding: 2rem;
+    text-align: center;
+    min-height: 180px;
+    display: grid;
+    place-items: center;
+  }
+
+  @media (max-width: 900px) {
+    .split-block,
+    .split-block.reverse,
+    .terms-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .prices {
+      gap: 2rem;
+    }
+  }
+</style>
