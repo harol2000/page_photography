@@ -44,12 +44,9 @@ const packages = [
     <div class="container packages-container">
       <p class="eyebrow packages-eyebrow">Choose your story</p>
 
-      <div class="packages-list">
-        {packages.map((item, index) => (
-          <a
-            href={item.link}
-            class={`package-banner ${index % 2 === 0 ? "narrow" : "wide"}`}
-          >
+      <div class="packages-grid">
+        {packages.map((item) => (
+          <a href={item.link} class="package-card">
             <div class="package-image-stack">
               <img src={item.image} alt={item.title} class="img-base" />
               <img src={item.hoverImage} alt={item.title} class="img-hover" />
@@ -89,29 +86,20 @@ const packages = [
     color: #d8c1a6;
   }
 
-  .packages-list {
+  .packages-grid {
     display: grid;
-    gap: 1.4rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem;
   }
 
-  .package-banner {
+  .package-card {
     position: relative;
     display: block;
     overflow: hidden;
-    margin-inline: auto;
+    aspect-ratio: 5 / 4;
     color: white;
     text-decoration: none;
-    border-radius: 0;
-  }
-
-  .package-banner.narrow {
-    width: 72%;
-    min-height: 230px;
-  }
-
-  .package-banner.wide {
-    width: 88%;
-    min-height: 250px;
+    border-radius: 8px;
   }
 
   .package-image-stack {
@@ -138,12 +126,12 @@ const packages = [
     transform: scale(1.08);
   }
 
-  .package-banner:hover .img-base {
+  .package-card:hover .img-base {
     opacity: 0;
     transform: scale(1.06);
   }
 
-  .package-banner:hover .img-hover {
+  .package-card:hover .img-hover {
     opacity: 1;
     transform: scale(1.12);
   }
@@ -153,27 +141,27 @@ const packages = [
     inset: 0;
     display: flex;
     align-items: flex-end;
-    padding: 2rem;
-    background: linear-gradient(to top, rgba(0,0,0,.38), rgba(0,0,0,.08));
+    padding: 1.8rem;
+    background: linear-gradient(to top, rgba(0,0,0,.42), rgba(0,0,0,.08));
   }
 
   .package-copy {
-    max-width: 420px;
+    max-width: 85%;
   }
 
   .package-copy h2 {
-    font-size: clamp(2rem, 3vw, 3.4rem);
+    font-size: clamp(1.8rem, 3vw, 3rem);
     line-height: 0.95;
     font-weight: 300;
-    margin-bottom: 0.7rem;
+    margin-bottom: 0.6rem;
     color: white;
   }
 
   .package-subtitle {
-    font-size: clamp(1.3rem, 2.2vw, 2.4rem);
-    line-height: 0.95;
+    font-size: clamp(1.1rem, 2vw, 1.8rem);
+    line-height: 1;
     font-weight: 300;
-    color: rgba(255,255,255,.88);
+    color: rgba(255,255,255,.9);
     margin-bottom: 1rem;
   }
 
@@ -181,8 +169,8 @@ const packages = [
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-width: 130px;
-    padding: 0.75rem 1.1rem;
+    min-width: 120px;
+    padding: 0.72rem 1rem;
     border: 2px solid rgba(255,255,255,.95);
     border-radius: 999px;
     color: white;
@@ -190,20 +178,22 @@ const packages = [
     transition: background .25s ease, color .25s ease;
   }
 
-  .package-banner:hover .package-btn {
+  .package-card:hover .package-btn {
     background: white;
     color: #222;
   }
 
   @media (max-width: 900px) {
-    .package-banner.narrow,
-    .package-banner.wide {
-      width: 100%;
-      min-height: 220px;
+    .packages-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .package-card {
+      aspect-ratio: 4 / 3;
     }
 
     .package-overlay {
-      padding: 1.3rem;
+      padding: 1.2rem;
     }
 
     .package-copy h2 {
@@ -211,7 +201,7 @@ const packages = [
     }
 
     .package-subtitle {
-      font-size: 1.4rem;
+      font-size: 1.2rem;
     }
   }
 </style>
