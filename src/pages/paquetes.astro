@@ -2,34 +2,68 @@
 import MainLayout from "../layouts/MainLayout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+
+const base = "https://harol2000.github.io/page_photography/";
+
+const packages = [
+  {
+    title: "Sesión de Novios",
+    subtitle: "before your wedding",
+    image: `${base}images/624535049_122108716299204129_1624264578338389553_n.jpg`,
+    hoverImage: `${base}images/623917170_122108717205204129_8828546668175769016_n.jpg`,
+    link: `${base}paquetes/sesion-novios/`,
+  },
+  {
+    title: "Cobertura de Bodas",
+    subtitle: "",
+    image: `${base}images/622359896_122108711961204129_8171615373665783138_n.jpg`,
+    hoverImage: `${base}images/622727017_122108717235204129_6272086216731972065_n.jpg`,
+    link: `${base}paquetes/cobertura-bodas/`,
+  },
+  {
+    title: "Video de Bodas",
+    subtitle: "memories",
+    image: `${base}images/624228533_122108712555204129_7475938911244930771_n.jpg`,
+    hoverImage: `${base}images/62424715_122108716407204129_6930061170870102698_n.jpg`,
+    link: `${base}paquetes/video-bodas/`,
+  },
+  {
+    title: "Premium Experience",
+    subtitle: "",
+    image: `${base}images/622620831_122108715999204129_4721692470404525508_n.jpg`,
+    hoverImage: `${base}images/624406731_122108717193204129_4519717868385406808_n.jpg`,
+    link: `${base}paquetes/premium-experience/`,
+  },
+];
 ---
 
 <MainLayout title="Paquetes | Tu Marca">
   <Header />
 
-  <section class="section">
+  <section class="section packages-hero">
     <div class="container">
-      <p class="eyebrow">Paquetes</p>
-      <h1 class="title">Opciones para cada ocasión</h1>
+      <p class="eyebrow">Choose your story</p>
 
-      <div class="packages-grid">
-        <article class="package">
-          <span>Básico</span>
-          <h2>Sesión personal</h2>
-          <p>Ideal para retratos, contenido personal y sesiones casuales.</p>
-        </article>
+      <div class="packages-list">
+        {packages.map((item, index) => (
+          <a
+            href={item.link}
+            class={`package-banner banner-${index + 1}`}
+          >
+            <div class="package-image-stack">
+              <img src={item.image} alt={item.title} class="img-base" />
+              <img src={item.hoverImage} alt={item.title} class="img-hover" />
+            </div>
 
-        <article class="package featured">
-          <span>Más solicitado</span>
-          <h2>Bodas & eventos</h2>
-          <p>Una cobertura pensada para preservar cada instante importante.</p>
-        </article>
-
-        <article class="package">
-          <span>Marca</span>
-          <h2>Corporativo</h2>
-          <p>Fotografía de productos, branding y contenido visual empresarial.</p>
-        </article>
+            <div class="package-overlay">
+              <div class="package-copy">
+                <h2>{item.title}</h2>
+                {item.subtitle && <span class="package-subtitle">{item.subtitle}</span>}
+                <span class="package-btn">Leer más</span>
+              </div>
+            </div>
+          </a>
+        ))}
       </div>
     </div>
   </section>
@@ -38,46 +72,142 @@ import Footer from "../components/Footer.astro";
 </MainLayout>
 
 <style>
-  .packages-grid {
+  .packages-hero .eyebrow {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: clamp(1rem, 2vw, 1.3rem);
+    letter-spacing: .08em;
+    color: #d8c1a6;
+    text-transform: none;
+  }
+
+  .packages-list {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
+    gap: 1.2rem;
   }
 
-  .package {
-    background: white;
-    border: 1px solid var(--line);
-    border-radius: 24px;
-    padding: 1.5rem;
-    box-shadow: var(--shadow);
-  }
-
-  .package span {
-    display: inline-block;
-    margin-bottom: 1rem;
-    font-size: .75rem;
-    text-transform: uppercase;
-    letter-spacing: .15em;
-    color: var(--muted);
-  }
-
-  .package h2 {
-    font-size: 1.7rem;
-    margin-bottom: .7rem;
-  }
-
-  .featured {
-    background: linear-gradient(180deg, #8b6f5a, #735846);
+  .package-banner {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    min-height: 260px;
+    text-decoration: none;
     color: white;
   }
 
-  .featured span {
-    color: rgba(255,255,255,.9);
+  .banner-1,
+  .banner-3 {
+    width: 72%;
+    margin-inline: auto;
+  }
+
+  .banner-2,
+  .banner-4 {
+    width: 86%;
+    margin-inline: auto;
+  }
+
+  .package-image-stack {
+    position: absolute;
+    inset: 0;
+  }
+
+  .package-image-stack img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .6s ease, opacity .45s ease;
+  }
+
+  .img-base {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .img-hover {
+    opacity: 0;
+    transform: scale(1.08);
+  }
+
+  .package-banner:hover .img-base {
+    opacity: 0;
+    transform: scale(1.08);
+  }
+
+  .package-banner:hover .img-hover {
+    opacity: 1;
+    transform: scale(1.14);
+  }
+
+  .package-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, rgba(0,0,0,.35), rgba(0,0,0,.1));
+    display: flex;
+    align-items: center;
+    padding: 2rem;
+  }
+
+  .package-copy {
+    position: relative;
+    z-index: 2;
+    max-width: 520px;
+  }
+
+  .package-copy h2 {
+    font-size: clamp(2rem, 4vw, 4rem);
+    font-weight: 300;
+    margin-bottom: .8rem;
+    color: white;
+  }
+
+  .package-subtitle {
+    display: block;
+    font-size: clamp(2rem, 5vw, 5rem);
+    line-height: .9;
+    font-weight: 300;
+    color: rgba(255,255,255,.85);
+    margin-bottom: 1.2rem;
+  }
+
+  .package-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 130px;
+    padding: .8rem 1.2rem;
+    border: 2px solid rgba(255,255,255,.9);
+    border-radius: 999px;
+    color: white;
+    font-weight: 600;
+    transition: background .25s ease, color .25s ease;
+  }
+
+  .package-banner:hover .package-btn {
+    background: white;
+    color: #333;
   }
 
   @media (max-width: 900px) {
-    .packages-grid {
-      grid-template-columns: 1fr;
+    .banner-1,
+    .banner-2,
+    .banner-3,
+    .banner-4 {
+      width: 100%;
+    }
+
+    .package-banner {
+      min-height: 220px;
+    }
+
+    .package-copy h2 {
+      font-size: 2rem;
+    }
+
+    .package-subtitle {
+      font-size: 2.5rem;
     }
   }
 </style>
