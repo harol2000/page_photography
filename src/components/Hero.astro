@@ -1,5 +1,9 @@
+---
+const base = import.meta.env.BASE_URL;
+---
+
 <section class="hero">
-  <img src="/images/portada.png" alt="Portada principal" class="hero-bg" />
+  <img src={`${base}images/portada.png`} alt="Portada principal" class="hero-bg" />
   <div class="hero-overlay"></div>
 
   <div class="container hero-content">
@@ -10,13 +14,9 @@
       a través de mi lente
     </h1>
 
-    <p>
-      
-    </p>
-
     <div class="hero-actions">
-      <a href="/galeria" class="btn btn-primary">Ver portafolio</a>
-      <a href="/contacto" class="btn btn-outline">Reservar sesión</a>
+      <a href={`${base}galeria/`} class="btn btn-primary">Ver portafolio</a>
+      <a href={`${base}contacto/`} class="btn btn-outline">Reservar sesión</a>
     </div>
   </div>
 </section>
@@ -53,7 +53,6 @@
     color: white;
     max-width: 900px;
     transform: translateY(-210px);
-    
   }
 
   .hero h1 {
@@ -79,5 +78,21 @@
 
   .hero-eyebrow {
     color: rgba(255,255,255,.88);
+  }
+
+  @media (max-width: 768px) {
+    .hero-content {
+      transform: translateY(-40px);
+      padding-inline: 1rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.2rem, 10vw, 3.8rem);
+    }
+
+    .hero-actions .btn {
+      width: 100%;
+      max-width: 320px;
+    }
   }
 </style>
