@@ -3,13 +3,15 @@ import MainLayout from "../layouts/MainLayout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 
+const base = "https://harol2000.github.io/page_photography/";
+
 const services = [
-  { title: "Boda civil", image: "/images/624059371_122108713671204129_2529362716314304643_n.jpg" },
-  { title: "Boda religiosa", image: "/images/622259064_122108712627204129_4483227771510883107_n.jpg" },
-  { title: "Sesión preboda", image: "/images/624535049_122108716299204129_1624264578338389553_n.jpg" },
-  { title: "Sesión postboda", image: "/images/624406731_122108717193204129_4519717868385406808_n.jpg" },
-  { title: "Cobertura de recepción", image: "/images/622359896_122108711961204129_8171615373665783138_n.jpg" },
-  { title: "Paquete completo", image: "/images/622727017_122108717235204129_6272086216731972065_n.jpg" },
+  { title: "Boda civil", image: `${base}images/624059371_122108713671204129_2529362716314304643_n.jpg` },
+  { title: "Boda religiosa", image: `${base}images/622259064_122108712627204129_4483227771510883107_n.jpg` },
+  { title: "Sesión preboda", image: `${base}images/624535049_122108716299204129_1624264578338389553_n.jpg` },
+  { title: "Sesión postboda", image: `${base}images/624406731_122108717193204129_4519717868385406808_n.jpg` },
+  { title: "Cobertura de recepción", image: `${base}images/622359896_122108711961204129_8171615373665783138_n.jpg` },
+  { title: "Paquete completo", image: `${base}images/622727017_122108717235204129_6272086216731972065_n.jpg` },
 ];
 ---
 
@@ -33,7 +35,7 @@ const services = [
 
             <div class="service-content">
               <h2>{service.title}</h2>
-              <a href="/contacto">Consultar sesión</a>
+              <a href={`${base}contacto/`}>Consultar sesión</a>
             </div>
           </article>
         ))}
