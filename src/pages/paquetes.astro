@@ -24,7 +24,7 @@ const packages = [
     title: "Video de Bodas",
     subtitle: "memories",
     image: `${base}images/624228533_122108712555204129_7475938911244930771_n.jpg`,
-    hoverImage: `${base}images/62424715_122108716407204129_6930061170870102698_n.jpg`,
+    hoverImage: `${base}images/624242715_122108716407204129_6930061170870102698_n.jpg`,
     link: `${base}paquetes/video-bodas/`,
   },
   {
@@ -40,15 +40,15 @@ const packages = [
 <MainLayout title="Paquetes | Tu Marca">
   <Header />
 
-  <section class="section packages-hero">
-    <div class="container">
-      <p class="eyebrow">Choose your story</p>
+  <section class="section packages-section">
+    <div class="container packages-container">
+      <p class="eyebrow packages-eyebrow">Choose your story</p>
 
       <div class="packages-list">
         {packages.map((item, index) => (
           <a
             href={item.link}
-            class={`package-banner banner-${index + 1}`}
+            class={`package-banner ${index % 2 === 0 ? "narrow" : "wide"}`}
           >
             <div class="package-image-stack">
               <img src={item.image} alt={item.title} class="img-base" />
@@ -58,7 +58,7 @@ const packages = [
             <div class="package-overlay">
               <div class="package-copy">
                 <h2>{item.title}</h2>
-                {item.subtitle && <span class="package-subtitle">{item.subtitle}</span>}
+                {item.subtitle && <p class="package-subtitle">{item.subtitle}</p>}
                 <span class="package-btn">Leer más</span>
               </div>
             </div>
@@ -72,39 +72,46 @@ const packages = [
 </MainLayout>
 
 <style>
-  .packages-hero .eyebrow {
+  .packages-section {
+    padding-top: 4rem;
+  }
+
+  .packages-container {
+    max-width: 1100px;
+  }
+
+  .packages-eyebrow {
     text-align: center;
     margin-bottom: 2rem;
-    font-size: clamp(1rem, 2vw, 1.3rem);
-    letter-spacing: .08em;
-    color: #d8c1a6;
+    font-size: 1rem;
+    letter-spacing: 0.06em;
     text-transform: none;
+    color: #d8c1a6;
   }
 
   .packages-list {
     display: grid;
-    gap: 1.2rem;
+    gap: 1.4rem;
   }
 
   .package-banner {
     position: relative;
     display: block;
     overflow: hidden;
-    min-height: 260px;
-    text-decoration: none;
+    margin-inline: auto;
     color: white;
+    text-decoration: none;
+    border-radius: 0;
   }
 
-  .banner-1,
-  .banner-3 {
+  .package-banner.narrow {
     width: 72%;
-    margin-inline: auto;
+    min-height: 230px;
   }
 
-  .banner-2,
-  .banner-4 {
-    width: 86%;
-    margin-inline: auto;
+  .package-banner.wide {
+    width: 88%;
+    min-height: 250px;
   }
 
   .package-image-stack {
@@ -118,7 +125,7 @@ const packages = [
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform .6s ease, opacity .45s ease;
+    transition: transform 0.6s ease, opacity 0.45s ease;
   }
 
   .img-base {
@@ -133,43 +140,41 @@ const packages = [
 
   .package-banner:hover .img-base {
     opacity: 0;
-    transform: scale(1.08);
+    transform: scale(1.06);
   }
 
   .package-banner:hover .img-hover {
     opacity: 1;
-    transform: scale(1.14);
+    transform: scale(1.12);
   }
 
   .package-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to right, rgba(0,0,0,.35), rgba(0,0,0,.1));
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     padding: 2rem;
+    background: linear-gradient(to top, rgba(0,0,0,.38), rgba(0,0,0,.08));
   }
 
   .package-copy {
-    position: relative;
-    z-index: 2;
-    max-width: 520px;
+    max-width: 420px;
   }
 
   .package-copy h2 {
-    font-size: clamp(2rem, 4vw, 4rem);
+    font-size: clamp(2rem, 3vw, 3.4rem);
+    line-height: 0.95;
     font-weight: 300;
-    margin-bottom: .8rem;
+    margin-bottom: 0.7rem;
     color: white;
   }
 
   .package-subtitle {
-    display: block;
-    font-size: clamp(2rem, 5vw, 5rem);
-    line-height: .9;
+    font-size: clamp(1.3rem, 2.2vw, 2.4rem);
+    line-height: 0.95;
     font-weight: 300;
-    color: rgba(255,255,255,.85);
-    margin-bottom: 1.2rem;
+    color: rgba(255,255,255,.88);
+    margin-bottom: 1rem;
   }
 
   .package-btn {
@@ -177,8 +182,8 @@ const packages = [
     align-items: center;
     justify-content: center;
     min-width: 130px;
-    padding: .8rem 1.2rem;
-    border: 2px solid rgba(255,255,255,.9);
+    padding: 0.75rem 1.1rem;
+    border: 2px solid rgba(255,255,255,.95);
     border-radius: 999px;
     color: white;
     font-weight: 600;
@@ -187,19 +192,18 @@ const packages = [
 
   .package-banner:hover .package-btn {
     background: white;
-    color: #333;
+    color: #222;
   }
 
   @media (max-width: 900px) {
-    .banner-1,
-    .banner-2,
-    .banner-3,
-    .banner-4 {
+    .package-banner.narrow,
+    .package-banner.wide {
       width: 100%;
+      min-height: 220px;
     }
 
-    .package-banner {
-      min-height: 220px;
+    .package-overlay {
+      padding: 1.3rem;
     }
 
     .package-copy h2 {
@@ -207,7 +211,7 @@ const packages = [
     }
 
     .package-subtitle {
-      font-size: 2.5rem;
+      font-size: 1.4rem;
     }
   }
 </style>
