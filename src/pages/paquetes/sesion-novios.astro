@@ -1,1 +1,95 @@
 
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+
+const base = "https://harol2000.github.io/page_photography/";
+---
+
+<MainLayout title="Sesión de Novios | Studio27">
+  <Header />
+
+  <section class="package-detail">
+    <div class="container narrow">
+      <h1 class="main-title">Sesión de Novios</h1>
+      <p class="intro">
+        Antes de la boda hay una etapa hermosa: la de la complicidad, la emoción y la ilusión compartida. Esta sesión está pensada para capturar su esencia como pareja de una forma natural, relajada y auténtica.
+      </p>
+
+      <div class="prices">
+        <div class="price-card">
+          <h2>S/ 550</h2>
+          <p class="plan-name">Sesión clásica</p>
+          <p>1 locación</p>
+          <p>1 hora y media</p>
+        </div>
+
+        <div class="price-card">
+          <h2>S/ 950</h2>
+          <p class="plan-name">Sesión extendida</p>
+          <p>2 locaciones</p>
+          <p>Hasta 3 horas</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="split-block">
+      <img src={`${base}images/624535049_122108716299204129_1624264578338389553_n.jpg`} alt="Sesión de novios" />
+      <div class="split-copy">
+        <h3>Before your wedding</h3>
+        <p>
+          Una sesión pensada para que se conecten, se diviertan y tengan recuerdos previos a la boda con una estética íntima y elegante.
+        </p>
+        <p><strong>Sesión clásica</strong><br />1 locación | Dirección fotográfica</p>
+        <p><strong>Sesión extendida</strong><br />2 locaciones | Más variedad de tomas</p>
+      </div>
+    </div>
+
+    <div class="split-block reverse">
+      <div class="split-copy">
+        <h3>Entrega</h3>
+        <p>
+          Se entrega una selección editada profesionalmente en galería online privada.
+        </p>
+        <p>Ideal para invitaciones, redes sociales, recuerdos impresos o material visual de la boda.</p>
+      </div>
+      <img src={`${base}images/623917170_122108717205204129_8828546668175769016_n.jpg`} alt="Entrega sesión de novios" />
+    </div>
+
+    <div class="terms">
+      <div class="container narrow">
+        <h2>Términos & Condiciones</h2>
+
+        <div class="terms-grid">
+          <article><p>La fecha se confirma con adelanto previo.</p></article>
+          <article><p>Puede reprogramarse por clima o motivos coordinados con anticipación.</p></article>
+          <article><p>Las locaciones con ingreso o permiso especial corren por cuenta del cliente.</p></article>
+          <article><p>El traslado fuera de la ciudad se cotiza aparte.</p></article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</MainLayout>
+
+<style>
+  .package-detail { padding: 4rem 0 0; }
+  .narrow { max-width: 980px; margin-inline: auto; text-align: center; }
+  .main-title { font-size: clamp(2.4rem, 5vw, 4.5rem); font-weight: 300; color: #8aa0a0; margin-bottom: 1rem; }
+  .intro { max-width: 760px; margin: 0 auto 2.5rem; font-size: 1.15rem; line-height: 1.7; }
+  .prices { display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; margin-bottom: 4rem; }
+  .price-card { min-width: 260px; padding: 1.5rem; }
+  .price-card h2 { font-size: 3rem; font-weight: 300; color: #8aa0a0; margin-bottom: .5rem; }
+  .plan-name { font-size: 1.2rem; color: #8aa0a0; margin-bottom: .4rem; }
+  .split-block { display: grid; grid-template-columns: 1fr 1fr; align-items: stretch; }
+  .split-block img { width: 100%; height: 100%; min-height: 420px; object-fit: cover; display: block; }
+  .split-copy { display: grid; place-items: center; padding: 3rem; text-align: center; font-size: 1.2rem; line-height: 1.7; background: #f7f5f2; }
+  .split-copy h3 { font-size: 2rem; font-weight: 400; margin-bottom: 1rem; color: #8aa0a0; }
+  .terms { padding: 4rem 0; }
+  .terms h2 { font-size: 2.5rem; font-weight: 300; color: #8aa0a0; margin-bottom: 2rem; }
+  .terms-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+  .terms-grid article { background: #efe3d8; padding: 2rem; min-height: 180px; display: grid; place-items: center; text-align: center; }
+  @media (max-width: 900px) { .split-block, .terms-grid { grid-template-columns: 1fr; } }
+</style>
