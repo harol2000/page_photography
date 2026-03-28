@@ -1,9 +1,9 @@
----
-const base = import.meta.env.BASE_URL;
----
-
 <section class="hero">
-  <img src={`${base}images/portada.png`} alt="Portada principal" class="hero-bg" />
+  <img
+    src="https://harol2000.github.io/page_photography/images/portada.png"
+    alt="Portada principal"
+    class="hero-bg"
+  />
   <div class="hero-overlay"></div>
 
   <div class="container hero-content">
@@ -15,8 +15,18 @@ const base = import.meta.env.BASE_URL;
     </h1>
 
     <div class="hero-actions">
-      <a href={`${base}galeria/`} class="btn btn-primary">Ver portafolio</a>
-      <a href={`${base}contacto/`} class="btn btn-outline">Reservar sesión</a>
+      <a
+        href="https://harol2000.github.io/page_photography/galeria/"
+        class="btn btn-primary"
+      >
+        Ver portafolio
+      </a>
+      <a
+        href="https://harol2000.github.io/page_photography/contacto/"
+        class="btn btn-outline"
+      >
+        Reservar sesión
+      </a>
     </div>
   </div>
 </section>
