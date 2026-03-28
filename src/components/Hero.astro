@@ -1,122 +1,21 @@
 <section class="hero">
   <div class="hero-media">
-    <video
-      class="hero-video active"
-      autoplay
-      muted
-      loop
-      playsinline
-      preload="auto"
-    >
-      <source src="https://harol2000.github.io/page_photography/videos/VIDEO_PORTADA_720.mp4" type="video/mp4" />
-    </video>
-
-    <video
-      class="hero-video"
-      autoplay
-      muted
-      loop
-      playsinline
-      preload="auto"
-    >
-      <source src="https://harol2000.github.io/page_photography/videos/VIDEO_PORTADA_720.mp4" type="video/mp4" />
-    </video>
-
-    <video
-      class="hero-video"
-      autoplay
-      muted
-      loop
-      playsinline
-      preload="auto"
-    >
+    <video class="hero-video active" autoplay muted loop playsinline preload="auto">
       <source src="https://harol2000.github.io/page_photography/videos/VIDEO_PORTADA_720.mp4" type="video/mp4" />
     </video>
   </div>
 
-  <!-- Cortina oscura comentada
-  <div class="hero-overlay"></div>
-  -->
-
-  <!-- Texto comentado
-  <div class="container hero-content">
-    <p class="eyebrow hero-eyebrow">Fotografía con esencia natural</p>
-
-    <h1>
-      Tu historia <br />
-      a través de mi lente
-    </h1>
-
-    <div class="hero-actions">
-      <a
-        href="https://harol2000.github.io/page_photography/galeria/"
-        class="btn btn-primary"
-      >
-        Ver portafolio
-      </a>
-      <a
-        href="https://harol2000.github.io/page_photography/contacto/"
-        class="btn btn-outline"
-      >
-        Reservar sesión
-      </a>
-    </div>
+  <div class="hero-logo-wrap">
+    <img
+      src="https://harol2000.github.io/page_photography/images/LOGO_FRANKTUCNO.png"
+      alt="Studio27"
+      class="hero-logo-center"
+    />
   </div>
-  -->
 
   <button class="hero-arrow hero-prev" aria-label="Video anterior">‹</button>
   <button class="hero-arrow hero-next" aria-label="Video siguiente">›</button>
 </section>
-
-<script>
-  const videos = document.querySelectorAll(".hero-video");
-  const prevBtn = document.querySelector(".hero-prev");
-  const nextBtn = document.querySelector(".hero-next");
-
-  let current = 0;
-  let autoChange;
-
-  function showVideo(index) {
-    videos.forEach((video, i) => {
-      video.classList.toggle("active", i === index);
-      if (i === index) {
-        video.currentTime = 0;
-        video.play().catch(() => {});
-      } else {
-        video.pause();
-      }
-    });
-  }
-
-  function nextVideo() {
-    current = (current + 1) % videos.length;
-    showVideo(current);
-    restartAuto();
-  }
-
-  function prevVideo() {
-    current = (current - 1 + videos.length) % videos.length;
-    showVideo(current);
-    restartAuto();
-  }
-
-  function startAuto() {
-    autoChange = setInterval(() => {
-      nextVideo();
-    }, 19000);
-  }
-
-  function restartAuto() {
-    clearInterval(autoChange);
-    startAuto();
-  }
-
-  prevBtn?.addEventListener("click", prevVideo);
-  nextBtn?.addEventListener("click", nextVideo);
-
-  showVideo(current);
-  startAuto();
-</script>
 
 <style>
   .hero {
@@ -137,54 +36,23 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    opacity: 0;
-    transition: opacity 0.8s ease;
+  }
+
+  .hero-logo-wrap {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    display: grid;
+    place-items: center;
     pointer-events: none;
   }
 
-  .hero-video.active {
-    opacity: 1;
+  .hero-logo-center {
+    width: min(520px, 70vw);
+    height: auto;
+    display: block;
+    object-fit: contain;
   }
-
-  /* Cortina oscura comentada
-  .hero-overlay {
-    position: absolute;
-    inset: 0;
-    background:
-      linear-gradient(to top, rgba(0,0,0,.5), rgba(0,0,0,.18)),
-      linear-gradient(to right, rgba(0,0,0,.2), rgba(0,0,0,.05));
-    z-index: 2;
-  }
-  */
-
-  /* Texto comentado
-  .hero-content {
-    position: relative;
-    z-index: 3;
-    text-align: center;
-    color: white;
-    max-width: 900px;
-    transform: translateY(-210px);
-  }
-
-  .hero h1 {
-    font-size: clamp(2.5rem, 7vw, 5.8rem);
-    line-height: .95;
-    margin-bottom: 1rem;
-  }
-
-  .hero-actions {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    flex-wrap: wrap;
-    margin-top: 2rem;
-  }
-
-  .hero-eyebrow {
-    color: rgba(255,255,255,.88);
-  }
-  */
 
   .hero-arrow {
     position: absolute;
@@ -201,7 +69,7 @@
     line-height: 1;
     cursor: pointer;
     backdrop-filter: blur(6px);
-    transition: background .25s ease, transform .25s ease;
+    transition: background .25s ease;
   }
 
   .hero-arrow:hover {
@@ -219,6 +87,10 @@
   @media (max-width: 768px) {
     .hero {
       min-height: 72vh;
+    }
+
+    .hero-logo-center {
+      width: min(320px, 72vw);
     }
 
     .hero-arrow {
