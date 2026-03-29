@@ -1,4 +1,3 @@
-
 ---
 import MainLayout from "../../layouts/MainLayout.astro";
 import Header from "../../components/Header.astro";
@@ -11,76 +10,129 @@ const base = "https://harol2000.github.io/page_photography/";
   <Header />
 
   <section class="package-detail">
-    <div class="container narrow">
+    <div class="container narrow hero-top">
+      <p class="kicker">EXPERIENCIA EXCLUSIVA</p>
       <h1 class="main-title">Experiencia Premium</h1>
       <p class="intro">
-        Una propuesta diseñada para quienes desean una experiencia más completa, cuidada y personalizada. Pensada para bodas con una cobertura más amplia, mayor dirección visual y un resultado final aún más especial.
+        Una propuesta diseñada para quienes desean una experiencia más completa, cuidada y personalizada.
+        Pensada para bodas con una cobertura más amplia, mayor dirección visual y un resultado final aún más especial.
       </p>
 
-      <div class="prices">
-        <div class="price-card">
-          <h2>S/ 5,800</h2>
-          <p class="plan-name">Premium Day</p>
-          <p>Cobertura extendida</p>
-          <p>Más contenido y detalle</p>
-        </div>
+      <div class="prices-wrap">
+        <div class="prices">
+          <div class="price-card">
+            <h2>S/ 5,800</h2>
+            <p class="plan-name">Premium Day</p>
+            <p>Cobertura extendida</p>
+            <p>Más contenido y detalle</p>
+          </div>
 
-        <div class="price-card">
-          <h2>S/ 7,200</h2>
-          <p class="plan-name">Premium Signature</p>
-          <p>Experiencia integral</p>
-          <p>Atención personalizada</p>
+          <div class="price-card">
+            <h2>S/ 7,200</h2>
+            <p class="plan-name">Premium Signature</p>
+            <p>Experiencia integral</p>
+            <p>Atención personalizada</p>
+          </div>
         </div>
       </div>
     </div>
 
-    <div class="split-block">
-      <img src={`${base}images/622620831_122108715999204129_4721692470404525508_n.jpg`} alt="Experiencia Premium" />
-      <div class="split-copy">
-        <h3>Una experiencia más completa</h3>
-        <p>
-          Ideal para parejas que valoran una cobertura más artística, más acompañamiento y una narrativa visual más cuidada.
-        </p>
-        <p><strong>Premium Day</strong><br />Cobertura extendida y dirección visual</p>
-        <p><strong>Premium Signature</strong><br />Una experiencia más exclusiva y personalizada</p>
+    <div class="editorial-block">
+      <div class="editorial-media">
+        <img
+          src={`${base}images/622620831_122108715999204129_4721692470404525508_n.jpg`}
+          alt="Experiencia Premium"
+        />
+      </div>
+
+      <div class="editorial-text">
+        <div class="editorial-card">
+          <p class="section-label">PREMIUM EXPERIENCE</p>
+          <h2>
+            Una experiencia más
+            <br />
+            completa y personalizada
+          </h2>
+
+          <p>
+            Ideal para parejas que valoran una cobertura más artística,
+            más acompañamiento y una narrativa visual más cuidada.
+          </p>
+
+          <div class="mini-divider"></div>
+
+          <p>
+            <strong>Premium Day</strong>
+            <br />
+            Cobertura extendida y dirección visual
+          </p>
+
+          <p>
+            <strong>Premium Signature</strong>
+            <br />
+            Una experiencia más exclusiva y personalizada
+          </p>
+        </div>
       </div>
     </div>
 
-    <div class="split-block reverse">
-      <div class="split-copy">
-        <h3>Detalle & estilo</h3>
-        <p>
-          Se prioriza la experiencia, la estética y la tranquilidad de saber que cada momento importante será documentado con atención.
-        </p>
-        <p>Un servicio pensado para quienes desean algo más que fotos: una experiencia memorable.</p>
+    <div class="editorial-block reverse">
+      <div class="editorial-text">
+        <div class="editorial-card">
+          <p class="section-label">DETALLE & ESTILO</p>
+          <h2>
+            Más que fotos:
+            <br />
+            una experiencia memorable
+          </h2>
+
+          <p>
+            Se prioriza la experiencia, la estética y la tranquilidad
+            de saber que cada momento importante será documentado con atención.
+          </p>
+
+          <div class="mini-divider"></div>
+
+          <p>
+            Un servicio pensado para quienes desean algo más que fotos:
+            una experiencia realmente especial.
+          </p>
+        </div>
       </div>
-      <img src={`${base}images/624406731_122108717193204129_4519717868385406808_n.jpg`} alt="Detalle experiencia premium" />
+
+      <div class="editorial-media">
+        <img
+          src={`${base}images/624406731_122108717193204129_4519717868385406808_n.jpg`}
+          alt="Detalle experiencia premium"
+        />
+      </div>
     </div>
 
     <div class="terms">
       <div class="container narrow">
+        <p class="kicker">INFORMACIÓN IMPORTANTE</p>
         <h2>Términos & Condiciones</h2>
 
-<div class="terms-grid">
-  <article>
-    <div class="term-icon-circle">▣</div>
-    <p>La reserva se confirma con adelanto previo.</p>
-  </article>
+        <div class="terms-grid">
+          <article>
+            <div class="term-icon-circle">▣</div>
+            <p>La reserva se confirma con adelanto previo.</p>
+          </article>
 
-  <article>
-    <div class="term-icon-circle">◔</div>
-    <p>La cobertura se adapta según agenda, locación y necesidades del evento.</p>
-  </article>
+          <article>
+            <div class="term-icon-circle">◔</div>
+            <p>La cobertura se adapta según agenda, locación y necesidades del evento.</p>
+          </article>
 
-  <article>
-    <div class="term-icon-circle">⌂</div>
-    <p>Los servicios adicionales se cotizan por separado.</p>
-  </article>
+          <article>
+            <div class="term-icon-circle">⌂</div>
+            <p>Los servicios adicionales se cotizan por separado.</p>
+          </article>
 
-  <article>
-    <div class="term-icon-circle">◷</div>
-    <p>La experiencia final puede personalizarse según requerimientos.</p>
-
+          <article>
+            <div class="term-icon-circle">◷</div>
+            <p>La experiencia final puede personalizarse según requerimientos.</p>
+          </article>
         </div>
       </div>
     </div>
@@ -90,33 +142,279 @@ const base = "https://harol2000.github.io/page_photography/";
 </MainLayout>
 
 <style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
 
-.term-icon-circle {
-  width: 58px;
-  height: 58px;
-  border-radius: 999px;
-  display: grid;
-  place-items: center;
-  margin: 0 auto 1rem;
-  background: #b2760c;
-  color: white;
-  font-size: 1.5rem;
-}
-  .package-detail { padding: 4rem 0 0; }
-  .narrow { max-width: 980px; margin-inline: auto; text-align: center; }
-  .main-title { font-size: clamp(2.4rem, 5vw, 4.5rem); font-weight: 300; color: #8aa0a0; margin-bottom: 1rem; }
-  .intro { max-width: 760px; margin: 0 auto 2.5rem; font-size: 1.15rem; line-height: 1.7; }
-  .prices { display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; margin-bottom: 4rem; }
-  .price-card { min-width: 260px; padding: 1.5rem; }
-  .price-card h2 { font-size: 3rem; font-weight: 300; color: #8aa0a0; margin-bottom: .5rem; }
-  .plan-name { font-size: 1.2rem; color: #8aa0a0; margin-bottom: .4rem; }
-  .split-block { display: grid; grid-template-columns: 1fr 1fr; align-items: stretch; }
-  .split-block img { width: 100%; height: 100%; min-height: 420px; object-fit: cover; display: block; }
-  .split-copy { display: grid; place-items: center; padding: 3rem; text-align: center; font-size: 1.2rem; line-height: 1.7; background: #f7f5f2; }
-  .split-copy h3 { font-size: 2rem; font-weight: 400; margin-bottom: 1rem; color: #8aa0a0; }
-  .terms { padding: 4rem 0; }
-  .terms h2 { font-size: 2.5rem; font-weight: 300; color: #8aa0a0; margin-bottom: 2rem; }
-  .terms-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
-  .terms-grid article { background: #efe3d8; padding: 2rem; min-height: 180px; display: grid; place-items: center; text-align: center; }
-  @media (max-width: 900px) { .split-block, .terms-grid { grid-template-columns: 1fr; } }
+  .package-detail {
+    padding: 4rem 0 0;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  .narrow {
+    max-width: 1120px;
+    margin-inline: auto;
+  }
+
+  .hero-top {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  .kicker {
+    font-size: 0.85rem;
+    letter-spacing: 0.22em;
+    color: #9b8f84;
+    margin-bottom: 1rem;
+  }
+
+  .main-title {
+    font-size: clamp(3rem, 5vw, 4.8rem);
+    font-weight: 300;
+    color: #8aa0a0;
+    margin-bottom: 1rem;
+    line-height: 1.08;
+  }
+
+  .intro {
+    max-width: 840px;
+    margin: 0 auto 2rem;
+    font-size: 1.15rem;
+    line-height: 1.9;
+    color: #4f4a45;
+  }
+
+  .prices-wrap {
+    max-width: 760px;
+    margin: 0 auto;
+  }
+
+  .prices {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.4rem;
+  }
+
+  .price-card {
+    background: #faf8f5;
+    border: 1px solid #eadfd4;
+    border-radius: 22px;
+    padding: 2rem 1.4rem;
+    text-align: center;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.03);
+  }
+
+  .price-card h2 {
+    font-size: 3rem;
+    font-weight: 300;
+    color: #8aa0a0;
+    margin-bottom: 0.5rem;
+    line-height: 1.1;
+  }
+
+  .plan-name {
+    font-size: 1.1rem;
+    color: #8aa0a0;
+    font-weight: 500;
+    margin-bottom: 0.55rem;
+  }
+
+  .price-card p {
+    margin: 0.28rem 0;
+    color: #5a554f;
+    font-size: 1rem;
+  }
+
+  .editorial-block {
+    max-width: 100%;
+    margin: 0 auto 2.5rem;
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 2.5rem;
+    align-items: center;
+  }
+
+  .editorial-block.reverse {
+    grid-template-columns: 0.95fr 1.05fr;
+  }
+
+  .editorial-block.reverse .editorial-text {
+    order: 1;
+  }
+
+  .editorial-block.reverse .editorial-media {
+    order: 2;
+  }
+
+  .editorial-media img {
+    width: 100%;
+    height: 540px;
+    object-fit: cover;
+    display: block;
+    border-radius: 0;
+  }
+
+  .editorial-text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 3rem 0 1rem;
+  }
+
+  .editorial-block.reverse .editorial-text {
+    padding: 0 1rem 0 3rem;
+  }
+
+  .editorial-card {
+    width: 100%;
+    max-width: 520px;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    padding: 0;
+    text-align: center;
+    box-shadow: none;
+  }
+
+  .section-label {
+    font-size: 0.95rem;
+    letter-spacing: 0.18em;
+    color: #9b8f84;
+    margin-bottom: 1rem;
+  }
+
+  .editorial-card h2 {
+    font-size: clamp(2.6rem, 3.4vw, 4rem);
+    font-weight: 300;
+    margin-bottom: 1.2rem;
+    color: #8aa0a0;
+    line-height: 1.18;
+  }
+
+  .editorial-card p {
+    line-height: 1.95;
+    color: #4f4a45;
+    font-size: 1.16rem;
+  }
+
+  .mini-divider {
+    width: 72px;
+    height: 1px;
+    background: #d8cbbf;
+    margin: 1.25rem auto;
+  }
+
+  .terms {
+    padding: 4rem 0;
+  }
+
+  .terms h2 {
+    text-align: center;
+    font-size: 2.8rem;
+    font-weight: 300;
+    color: #8aa0a0;
+    margin-bottom: 2rem;
+    line-height: 1.2;
+  }
+
+  .terms-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .terms-grid article {
+    background: #efe3d8;
+    border-radius: 22px;
+    padding: 2rem;
+    min-height: 220px;
+    display: grid;
+    place-items: center;
+    text-align: center;
+  }
+
+  .terms-grid article p {
+    font-size: 1.08rem;
+    line-height: 1.8;
+    color: #4f4a45;
+  }
+
+  .term-icon-circle {
+    width: 58px;
+    height: 58px;
+    border-radius: 999px;
+    display: grid;
+    place-items: center;
+    margin: 0 auto 1rem;
+    background: #b2760c;
+    color: white;
+    font-size: 1.5rem;
+  }
+
+  @media (max-width: 1200px) {
+    .editorial-text {
+      padding: 0 2rem;
+    }
+
+    .editorial-block.reverse .editorial-text {
+      padding: 0 2rem;
+    }
+
+    .editorial-media img {
+      height: 470px;
+    }
+  }
+
+  @media (max-width: 900px) {
+    .prices,
+    .terms-grid,
+    .editorial-block,
+    .editorial-block.reverse {
+      grid-template-columns: 1fr;
+    }
+
+    .editorial-block {
+      gap: 1.5rem;
+      padding: 0 1rem;
+    }
+
+    .editorial-block.reverse .editorial-text,
+    .editorial-block.reverse .editorial-media {
+      order: initial;
+    }
+
+    .editorial-media img {
+      height: auto;
+      min-height: 300px;
+      border-radius: 18px;
+    }
+
+    .editorial-text,
+    .editorial-block.reverse .editorial-text {
+      padding: 0;
+    }
+
+    .editorial-card {
+      background: #faf8f5;
+      border: 1px solid #eadfd4;
+      border-radius: 24px;
+      padding: 1.8rem 1.4rem;
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.03);
+    }
+
+    .editorial-card h2 {
+      font-size: clamp(2rem, 7vw, 2.8rem);
+    }
+
+    .editorial-card p,
+    .terms-grid article p {
+      font-size: 1rem;
+    }
+
+    .main-title {
+      font-size: clamp(2.4rem, 9vw, 3.8rem);
+    }
+
+    .terms h2 {
+      font-size: 2.2rem;
+    }
+  }
 </style>
