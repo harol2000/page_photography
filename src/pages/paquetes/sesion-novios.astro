@@ -1,4 +1,3 @@
-
 ---
 import MainLayout from "../../layouts/MainLayout.astro";
 import Header from "../../components/Header.astro";
@@ -11,25 +10,28 @@ const base = "https://harol2000.github.io/page_photography/";
   <Header />
 
   <section class="package-detail">
-    <div class="container narrow">
+    <div class="container narrow hero-top">
+      <p class="kicker">SESIÓN PREVIA</p>
       <h1 class="main-title">Sesión de Novios</h1>
       <p class="intro">
         Antes de la boda hay una etapa hermosa: la de la complicidad, la emoción y la ilusión compartida. Esta sesión está pensada para capturar su esencia como pareja de una forma natural, relajada y auténtica.
       </p>
 
-      <div class="prices">
-        <div class="price-card">
-          <h2>S/ 550</h2>
-          <p class="plan-name">Sesión clásica</p>
-          <p>1 locación</p>
-          <p>1 hora y media</p>
-        </div>
+      <div class="prices-box">
+        <div class="prices">
+          <div class="price-card">
+            <h2>S/ 550</h2>
+            <p class="plan-name">Sesión clásica</p>
+            <p>1 locación</p>
+            <p>1 hora y media</p>
+          </div>
 
-        <div class="price-card">
-          <h2>S/ 950</h2>
-          <p class="plan-name">Sesión extendida</p>
-          <p>2 locaciones</p>
-          <p>Hasta 3 horas</p>
+          <div class="price-card">
+            <h2>S/ 950</h2>
+            <p class="plan-name">Sesión extendida</p>
+            <p>2 locaciones</p>
+            <p>Hasta 3 horas</p>
+          </div>
         </div>
       </div>
     </div>
@@ -37,51 +39,60 @@ const base = "https://harol2000.github.io/page_photography/";
     <div class="split-block">
       <img src={`${base}images/624535049_122108716299204129_1624264578338389553_n.jpg`} alt="Sesión de novios" />
       <div class="split-copy">
-        <h3>Before your wedding</h3>
-        <p>
-          Una sesión pensada para que se conecten, se diviertan y tengan recuerdos previos a la boda con una estética íntima y elegante.
-        </p>
-        <p><strong>Sesión clásica</strong><br />1 locación | Dirección fotográfica</p>
-        <p><strong>Sesión extendida</strong><br />2 locaciones | Más variedad de tomas</p>
+        <div class="copy-box">
+          <p class="section-label">Before your wedding</p>
+          <h3>Una experiencia previa a la boda</h3>
+          <p>
+            Una sesión pensada para que se conecten, se diviertan y tengan recuerdos previos a la boda con una estética íntima y elegante.
+          </p>
+          <div class="mini-divider"></div>
+          <p><strong>Sesión clásica</strong><br />1 locación | Dirección fotográfica</p>
+          <p><strong>Sesión extendida</strong><br />2 locaciones | Más variedad de tomas</p>
+        </div>
       </div>
     </div>
 
     <div class="split-block reverse">
       <div class="split-copy">
-        <h3>Entrega</h3>
-        <p>
-          Se entrega una selección editada profesionalmente en galería online privada.
-        </p>
-        <p>Ideal para invitaciones, redes sociales, recuerdos impresos o material visual de la boda.</p>
+        <div class="copy-box">
+          <p class="section-label">Entrega</p>
+          <h3>Galería editada y lista para compartir</h3>
+          <p>
+            Se entrega una selección editada profesionalmente en galería online privada.
+          </p>
+          <div class="mini-divider"></div>
+          <p>Ideal para invitaciones, redes sociales, recuerdos impresos o material visual de la boda.</p>
+        </div>
       </div>
       <img src={`${base}images/623917170_122108717205204129_8828546668175769016_n.jpg`} alt="Entrega sesión de novios" />
     </div>
 
     <div class="terms">
       <div class="container narrow">
+        <p class="kicker">INFORMACIÓN IMPORTANTE</p>
         <h2>Términos & Condiciones</h2>
 
-<div class="terms-grid">
-  <article>
-    <div class="term-icon-circle">▣</div>
-    <p>La fecha se confirma con adelanto previo.</p>
-  </article>
+        <div class="terms-grid">
+          <article>
+            <div class="term-icon-circle">▣</div>
+            <p>La fecha se confirma con adelanto previo.</p>
+          </article>
 
-  <article>
-    <div class="term-icon-circle">◔</div>
-    <p>Puede reprogramarse por clima o motivos coordinados con anticipación.</p>
-  </article>
+          <article>
+            <div class="term-icon-circle">◔</div>
+            <p>Puede reprogramarse por clima o motivos coordinados con anticipación.</p>
+          </article>
 
-  <article>
-    <div class="term-icon-circle">⌂</div>
-    <p>Las locaciones con ingreso o permiso especial corren por cuenta del cliente.</p>
-  </article>
+          <article>
+            <div class="term-icon-circle">⌂</div>
+            <p>Las locaciones con ingreso o permiso especial corren por cuenta del cliente.</p>
+          </article>
 
-  <article>
-    <div class="term-icon-circle">◷</div>
-    <p>El traslado fuera de la ciudad se cotiza aparte.</p>
-  </article>
-</div>
+          <article>
+            <div class="term-icon-circle">◷</div>
+            <p>El traslado fuera de la ciudad se cotiza aparte.</p>
+          </article>
+        </div>
       </div>
     </div>
   </section>
@@ -90,32 +101,198 @@ const base = "https://harol2000.github.io/page_photography/";
 </MainLayout>
 
 <style>
-.term-icon-circle {
-  width: 58px;
-  height: 58px;
-  border-radius: 999px;
-  display: grid;
-  place-items: center;
-  margin: 0 auto 1rem;
-  background: #b2760c;
-  color: white;
-  font-size: 1.5rem;
-}
-  .package-detail { padding: 4rem 0 0; }
-  .narrow { max-width: 980px; margin-inline: auto; text-align: center; }
-  .main-title { font-size: clamp(2.4rem, 5vw, 4.5rem); font-weight: 300; color: #8aa0a0; margin-bottom: 1rem; }
-  .intro { max-width: 760px; margin: 0 auto 2.5rem; font-size: 1.15rem; line-height: 1.7; }
-  .prices { display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; margin-bottom: 4rem; }
-  .price-card { min-width: 260px; padding: 1.5rem; }
-  .price-card h2 { font-size: 3rem; font-weight: 300; color: #8aa0a0; margin-bottom: .5rem; }
-  .plan-name { font-size: 1.2rem; color: #8aa0a0; margin-bottom: .4rem; }
-  .split-block { display: grid; grid-template-columns: 1fr 1fr; align-items: stretch; }
-  .split-block img { width: 100%; height: 100%; min-height: 420px; object-fit: cover; display: block; }
-  .split-copy { display: grid; place-items: center; padding: 3rem; text-align: center; font-size: 1.2rem; line-height: 1.7; background: #f7f5f2; }
-  .split-copy h3 { font-size: 2rem; font-weight: 400; margin-bottom: 1rem; color: #8aa0a0; }
-  .terms { padding: 4rem 0; }
-  .terms h2 { font-size: 2.5rem; font-weight: 300; color: #8aa0a0; margin-bottom: 2rem; }
-  .terms-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
-  .terms-grid article { background: #efe3d8; padding: 2rem; min-height: 180px; display: grid; place-items: center; text-align: center; }
-  @media (max-width: 900px) { .split-block, .terms-grid { grid-template-columns: 1fr; } }
+  .package-detail {
+    padding: 4rem 0 0;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  .narrow {
+    max-width: 1080px;
+    margin-inline: auto;
+  }
+
+  .hero-top {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  .kicker {
+    font-size: 0.85rem;
+    letter-spacing: 0.22em;
+    color: #9b8f84;
+    margin-bottom: 1rem;
+  }
+
+  .main-title {
+    font-size: clamp(2.4rem, 5vw, 4.4rem);
+    font-weight: 300;
+    color: #8aa0a0;
+    margin-bottom: 1rem;
+  }
+
+  .intro {
+    max-width: 760px;
+    margin: 0 auto 2rem;
+    font-size: 1.05rem;
+    line-height: 1.9;
+    color: #4f4a45;
+  }
+
+  .prices-box {
+    background: rgba(255,255,255,0.75);
+    border: 1px solid #e9dfd6;
+    border-radius: 24px;
+    padding: 1.4rem;
+    max-width: 760px;
+    margin: 0 auto;
+    box-shadow: 0 10px 30px rgba(0,0,0,.04);
+  }
+
+  .prices {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.2rem;
+  }
+
+  .price-card {
+    background: #faf8f5;
+    border: 1px solid #eee3d8;
+    border-radius: 20px;
+    padding: 1.8rem 1.2rem;
+    text-align: center;
+  }
+
+  .price-card h2 {
+    font-size: 2.6rem;
+    font-weight: 400;
+    color: #8aa0a0;
+    margin-bottom: 0.5rem;
+  }
+
+  .plan-name {
+    font-size: 1.05rem;
+    color: #8aa0a0;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+  }
+
+  .price-card p {
+    margin: 0.25rem 0;
+    color: #5a554f;
+  }
+
+  .split-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: stretch;
+    margin-bottom: 1px;
+  }
+
+  .split-block img {
+    width: 100%;
+    height: 100%;
+    min-height: 460px;
+    object-fit: cover;
+    display: block;
+  }
+
+  .split-copy {
+    display: grid;
+    place-items: center;
+    background: #f7f5f2;
+    padding: 2rem;
+  }
+
+  .copy-box {
+    max-width: 520px;
+    background: rgba(255,255,255,0.72);
+    border: 1px solid #ede3d9;
+    border-radius: 24px;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 10px 28px rgba(0,0,0,.04);
+  }
+
+  .section-label {
+    font-size: 0.85rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #9b8f84;
+    margin-bottom: 0.8rem;
+  }
+
+  .copy-box h3 {
+    font-size: 2rem;
+    font-weight: 400;
+    margin-bottom: 1rem;
+    color: #8aa0a0;
+  }
+
+  .copy-box p {
+    line-height: 1.9;
+    color: #4f4a45;
+  }
+
+  .mini-divider {
+    width: 70px;
+    height: 1px;
+    background: #d8cbbf;
+    margin: 1.2rem auto;
+  }
+
+  .terms {
+    padding: 4rem 0;
+  }
+
+  .terms h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 300;
+    color: #8aa0a0;
+    margin-bottom: 2rem;
+  }
+
+  .terms-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .terms-grid article {
+    background: #efe3d8;
+    border-radius: 22px;
+    padding: 2rem;
+    min-height: 220px;
+    display: grid;
+    place-items: center;
+    text-align: center;
+  }
+
+  .term-icon-circle {
+    width: 58px;
+    height: 58px;
+    border-radius: 999px;
+    display: grid;
+    place-items: center;
+    margin: 0 auto 1rem;
+    background: #b2760c;
+    color: white;
+    font-size: 1.5rem;
+  }
+
+  @media (max-width: 900px) {
+    .prices,
+    .split-block,
+    .terms-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .split-block img {
+      min-height: 320px;
+    }
+
+    .copy-box {
+      padding: 1.5rem;
+    }
+  }
 </style>
