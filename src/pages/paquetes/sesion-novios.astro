@@ -224,17 +224,16 @@ const base = "https://harol2000.github.io/page_photography/";
   }
 
   .editorial-block {
-    max-width: 1320px;
+    max-width: 100%;
     margin: 0 auto 2.5rem;
-    padding: 0 2rem;
     display: grid;
-    grid-template-columns: 1.08fr 0.92fr;
-    gap: 2.3rem;
+    grid-template-columns: 1.25fr 0.75fr;
+    gap: 2.5rem;
     align-items: center;
   }
 
   .editorial-block.reverse {
-    grid-template-columns: 0.92fr 1.08fr;
+    grid-template-columns: 0.75fr 1.25fr;
   }
 
   .editorial-block.reverse .editorial-text {
@@ -247,48 +246,53 @@ const base = "https://harol2000.github.io/page_photography/";
 
   .editorial-media img {
     width: 100%;
-    height: 470px;
+    height: 520px;
     object-fit: cover;
-    border-radius: 18px;
     display: block;
+    border-radius: 0;
   }
 
   .editorial-text {
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 0 3rem 0 1rem;
+  }
+
+  .editorial-block.reverse .editorial-text {
+    padding: 0 1rem 0 3rem;
   }
 
   .editorial-card {
     width: 100%;
-    max-width: 560px;
-    background: #faf8f5;
-    border: 1px solid #eadfd4;
-    border-radius: 24px;
-    padding: 2.6rem 2.4rem;
+    max-width: 520px;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    padding: 0;
     text-align: center;
-    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.03);
+    box-shadow: none;
   }
 
   .section-label {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     letter-spacing: 0.18em;
     color: #9b8f84;
     margin-bottom: 1rem;
   }
 
   .editorial-card h3 {
-    font-size: clamp(2.2rem, 3vw, 3.2rem);
+    font-size: clamp(2.6rem, 3.4vw, 4rem);
     font-weight: 300;
     margin-bottom: 1.2rem;
     color: #8aa0a0;
-    line-height: 1.22;
+    line-height: 1.18;
   }
 
   .editorial-card p {
     line-height: 1.95;
     color: #4f4a45;
-    font-size: 1.1rem;
+    font-size: 1.16rem;
   }
 
   .mini-divider {
@@ -345,12 +349,31 @@ const base = "https://harol2000.github.io/page_photography/";
     font-size: 1.5rem;
   }
 
-  @media (max-width: 1100px) {
+  @media (max-width: 1200px) {
+    .editorial-text {
+      padding: 0 2rem;
+    }
+
+    .editorial-block.reverse .editorial-text {
+      padding: 0 2rem;
+    }
+
+    .editorial-media img {
+      height: 470px;
+    }
+  }
+
+  @media (max-width: 900px) {
+    .prices,
+    .terms-grid,
     .editorial-block,
     .editorial-block.reverse {
       grid-template-columns: 1fr;
+    }
+
+    .editorial-block {
       gap: 1.5rem;
-      padding: 0 1.2rem;
+      padding: 0 1rem;
     }
 
     .editorial-block.reverse .editorial-text,
@@ -359,18 +382,22 @@ const base = "https://harol2000.github.io/page_photography/";
     }
 
     .editorial-media img {
-      height: 420px;
+      height: auto;
+      min-height: 300px;
+      border-radius: 18px;
     }
-  }
 
-  @media (max-width: 900px) {
-    .prices,
-    .terms-grid {
-      grid-template-columns: 1fr;
+    .editorial-text,
+    .editorial-block.reverse .editorial-text {
+      padding: 0;
     }
 
     .editorial-card {
+      background: #faf8f5;
+      border: 1px solid #eadfd4;
+      border-radius: 24px;
       padding: 1.8rem 1.4rem;
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.03);
     }
 
     .editorial-card h3 {
@@ -380,11 +407,6 @@ const base = "https://harol2000.github.io/page_photography/";
     .editorial-card p,
     .terms-grid article p {
       font-size: 1rem;
-    }
-
-    .editorial-media img {
-      height: auto;
-      min-height: 300px;
     }
 
     .main-title {
