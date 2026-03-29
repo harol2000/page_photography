@@ -14,11 +14,12 @@ const base = "https://harol2000.github.io/page_photography/";
       <p class="kicker">SESIÓN PREVIA</p>
       <h1 class="main-title">Sesión de Novios</h1>
       <p class="intro">
-        Antes de la boda hay una etapa hermosa: la de la complicidad, la emoción y la ilusión compartida.
-        Esta sesión está pensada para capturar su esencia como pareja de una forma natural, relajada y auténtica.
+        Antes de la boda hay una etapa hermosa: la de la complicidad, la emoción y la ilusión
+        compartida. Esta sesión está pensada para capturar su esencia como pareja de una forma
+        natural, relajada y auténtica.
       </p>
 
-      <div class="prices-box">
+      <div class="prices-wrap">
         <div class="prices">
           <div class="price-card">
             <h2>S/ 550</h2>
@@ -37,36 +38,55 @@ const base = "https://harol2000.github.io/page_photography/";
       </div>
     </div>
 
-    <div class="split-block">
-      <div class="image-shell">
+    <div class="editorial-block">
+      <div class="editorial-media">
         <img
           src={`${base}images/624535049_122108716299204129_1624264578338389553_n.jpg`}
           alt="Sesión de novios"
         />
       </div>
 
-      <div class="split-copy">
-        <div class="copy-box">
-          <p class="section-label">Before your wedding</p>
-          <h3>Una experiencia previa a la boda</h3>
+      <div class="editorial-text">
+        <div class="editorial-card">
+          <p class="section-label">BEFORE YOUR WEDDING</p>
+          <h3>
+            Una experiencia previa a la
+            <br />
+            boda
+          </h3>
+
           <p>
-            Una sesión pensada para que se conecten, se diviertan y tengan recuerdos previos a la boda
-            con una estética íntima y elegante.
+            Una sesión pensada para que se conecten, se diviertan y tengan recuerdos previos a la
+            boda con una estética íntima y elegante.
           </p>
 
           <div class="mini-divider"></div>
 
-          <p><strong>Sesión clásica</strong><br />1 locación | Dirección fotográfica</p>
-          <p><strong>Sesión extendida</strong><br />2 locaciones | Más variedad de tomas</p>
+          <p>
+            <strong>Sesión clásica</strong>
+            <br />
+            1 locación | Dirección fotográfica
+          </p>
+
+          <p>
+            <strong>Sesión extendida</strong>
+            <br />
+            2 locaciones | Más variedad de tomas
+          </p>
         </div>
       </div>
     </div>
 
-    <div class="split-block reverse">
-      <div class="split-copy">
-        <div class="copy-box">
-          <p class="section-label">Entrega</p>
-          <h3>Galería editada y lista para compartir</h3>
+    <div class="editorial-block reverse">
+      <div class="editorial-text">
+        <div class="editorial-card">
+          <p class="section-label">ENTREGA</p>
+          <h3>
+            Galería editada y lista para
+            <br />
+            compartir
+          </h3>
+
           <p>
             Se entrega una selección editada profesionalmente en galería online privada.
           </p>
@@ -74,12 +94,13 @@ const base = "https://harol2000.github.io/page_photography/";
           <div class="mini-divider"></div>
 
           <p>
-            Ideal para invitaciones, redes sociales, recuerdos impresos o material visual de la boda.
+            Ideal para invitaciones, redes sociales, recuerdos impresos o material visual de la
+            boda.
           </p>
         </div>
       </div>
 
-      <div class="image-shell">
+      <div class="editorial-media">
         <img
           src={`${base}images/623917170_122108717205204129_8828546668175769016_n.jpg`}
           alt="Entrega sesión de novios"
@@ -129,7 +150,7 @@ const base = "https://harol2000.github.io/page_photography/";
   }
 
   .narrow {
-    max-width: 1080px;
+    max-width: 1120px;
     margin-inline: auto;
   }
 
@@ -146,139 +167,135 @@ const base = "https://harol2000.github.io/page_photography/";
   }
 
   .main-title {
-    font-size: clamp(2.4rem, 5vw, 4.4rem);
+    font-size: clamp(3rem, 5vw, 4.8rem);
     font-weight: 300;
     color: #8aa0a0;
     margin-bottom: 1rem;
-    line-height: 1.1;
+    line-height: 1.08;
   }
 
   .intro {
-    max-width: 760px;
+    max-width: 840px;
     margin: 0 auto 2rem;
-    font-size: 1.05rem;
+    font-size: 1.15rem;
     line-height: 1.9;
     color: #4f4a45;
   }
 
-  .prices-box {
-    background: rgba(255, 255, 255, 0.76);
-    border: 1px solid #e9dfd6;
-    border-radius: 24px;
-    padding: 1.4rem;
+  .prices-wrap {
     max-width: 760px;
     margin: 0 auto;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
   }
 
   .prices {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 1.2rem;
+    gap: 1.4rem;
   }
 
   .price-card {
     background: #faf8f5;
-    border: 1px solid #eee3d8;
-    border-radius: 20px;
-    padding: 1.8rem 1.2rem;
+    border: 1px solid #eadfd4;
+    border-radius: 22px;
+    padding: 2rem 1.4rem;
     text-align: center;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.03);
   }
 
   .price-card h2 {
-    font-size: 2.6rem;
-    font-weight: 400;
+    font-size: 3rem;
+    font-weight: 300;
     color: #8aa0a0;
     margin-bottom: 0.5rem;
     line-height: 1.1;
   }
 
   .plan-name {
-    font-size: 1.05rem;
+    font-size: 1.1rem;
     color: #8aa0a0;
     font-weight: 500;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.55rem;
   }
 
   .price-card p {
-    margin: 0.25rem 0;
+    margin: 0.28rem 0;
     color: #5a554f;
+    font-size: 1rem;
   }
 
-  .split-block {
+  .editorial-block {
+    max-width: 1320px;
+    margin: 0 auto 2.5rem;
+    padding: 0 2rem;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1.08fr 0.92fr;
+    gap: 2.3rem;
     align-items: center;
-    gap: 2.5rem;
-    max-width: 1220px;
-    margin: 0 auto 3rem;
-    padding: 0 2.2rem;
   }
 
-  .split-block.reverse .split-copy {
+  .editorial-block.reverse {
+    grid-template-columns: 0.92fr 1.08fr;
+  }
+
+  .editorial-block.reverse .editorial-text {
     order: 1;
   }
 
-  .split-block.reverse .image-shell {
+  .editorial-block.reverse .editorial-media {
     order: 2;
   }
 
-  .image-shell {
+  .editorial-media img {
     width: 100%;
-  }
-
-  .image-shell img {
-    width: 100%;
-    height: 500px;
+    height: 470px;
     object-fit: cover;
+    border-radius: 18px;
     display: block;
-    border-radius: 28px;
-    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
   }
 
-  .split-copy {
+  .editorial-text {
     display: flex;
     align-items: center;
     justify-content: center;
   }
 
-  .copy-box {
+  .editorial-card {
     width: 100%;
-    max-width: 540px;
-    background: rgba(255, 255, 255, 0.74);
-    border: 1px solid #ede3d9;
+    max-width: 560px;
+    background: #faf8f5;
+    border: 1px solid #eadfd4;
     border-radius: 24px;
-    padding: 2.3rem;
+    padding: 2.6rem 2.4rem;
     text-align: center;
-    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.04);
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.03);
   }
 
   .section-label {
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     letter-spacing: 0.18em;
-    text-transform: uppercase;
     color: #9b8f84;
-    margin-bottom: 0.8rem;
-  }
-
-  .copy-box h3 {
-    font-size: clamp(2rem, 3vw, 3rem);
-    font-weight: 300;
     margin-bottom: 1rem;
-    color: #8aa0a0;
-    line-height: 1.2;
   }
 
-  .copy-box p {
-    line-height: 1.9;
+  .editorial-card h3 {
+    font-size: clamp(2.2rem, 3vw, 3.2rem);
+    font-weight: 300;
+    margin-bottom: 1.2rem;
+    color: #8aa0a0;
+    line-height: 1.22;
+  }
+
+  .editorial-card p {
+    line-height: 1.95;
     color: #4f4a45;
+    font-size: 1.1rem;
   }
 
   .mini-divider {
-    width: 70px;
+    width: 72px;
     height: 1px;
     background: #d8cbbf;
-    margin: 1.2rem auto;
+    margin: 1.25rem auto;
   }
 
   .terms {
@@ -287,7 +304,7 @@ const base = "https://harol2000.github.io/page_photography/";
 
   .terms h2 {
     text-align: center;
-    font-size: 2.5rem;
+    font-size: 2.8rem;
     font-weight: 300;
     color: #8aa0a0;
     margin-bottom: 2rem;
@@ -310,6 +327,12 @@ const base = "https://harol2000.github.io/page_photography/";
     text-align: center;
   }
 
+  .terms-grid article p {
+    font-size: 1.08rem;
+    line-height: 1.8;
+    color: #4f4a45;
+  }
+
   .term-icon-circle {
     width: 58px;
     height: 58px;
@@ -323,48 +346,53 @@ const base = "https://harol2000.github.io/page_photography/";
   }
 
   @media (max-width: 1100px) {
-    .split-block {
+    .editorial-block,
+    .editorial-block.reverse {
+      grid-template-columns: 1fr;
       gap: 1.5rem;
-      padding: 0 1.4rem;
+      padding: 0 1.2rem;
     }
 
-    .image-shell img {
-      height: 440px;
+    .editorial-block.reverse .editorial-text,
+    .editorial-block.reverse .editorial-media {
+      order: initial;
+    }
+
+    .editorial-media img {
+      height: 420px;
     }
   }
 
   @media (max-width: 900px) {
     .prices,
-    .split-block,
     .terms-grid {
       grid-template-columns: 1fr;
     }
 
-    .split-block {
-      gap: 1.5rem;
-      padding: 0 1rem;
+    .editorial-card {
+      padding: 1.8rem 1.4rem;
     }
 
-    .split-block.reverse .split-copy,
-    .split-block.reverse .image-shell {
-      order: initial;
+    .editorial-card h3 {
+      font-size: clamp(2rem, 7vw, 2.8rem);
     }
 
-    .image-shell img {
+    .editorial-card p,
+    .terms-grid article p {
+      font-size: 1rem;
+    }
+
+    .editorial-media img {
       height: auto;
-      min-height: 320px;
-    }
-
-    .copy-box {
-      padding: 1.5rem;
+      min-height: 300px;
     }
 
     .main-title {
-      font-size: clamp(2rem, 8vw, 3.4rem);
+      font-size: clamp(2.4rem, 9vw, 3.8rem);
     }
 
     .terms h2 {
-      font-size: 2rem;
+      font-size: 2.2rem;
     }
   }
 </style>
