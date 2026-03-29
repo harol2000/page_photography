@@ -31,34 +31,50 @@ const stories = [
   {
     title: "Patricia + Gabriel",
     text: '"Juntos somos perfectos".',
+    image: "https://harol2000.github.io/page_photography/images/624059371_122108713671204129_2529362716314304643_n.jpg",
+    link: "https://harol2000.github.io/page_photography/galeria/love-story/"
   },
   {
     title: "Patricia + Gabriel",
     text: "Entre café y caricias",
+    image: "https://harol2000.github.io/page_photography/images/622355680_122108712249204129_3792481669558524118_n.jpg",
+    link: "https://harol2000.github.io/page_photography/galeria/wedding-day/"
   },
   {
     title: "Jota + Carol",
     text: "Dos enamorados celebrando en grande.",
+    image: "https://harol2000.github.io/page_photography/images/623917170_122108717205204129_8828546668175769016_n.jpg",
+    link: "https://harol2000.github.io/page_photography/galeria/trash-the-dress/"
   },
   {
     title: "Giulia + Enrique",
     text: "Una muestra de amor incondicional.",
+    image: "https://harol2000.github.io/page_photography/images/624242715_122108716407204129_6930061170870102698_n.jpg",
+    link: "https://harol2000.github.io/page_photography/galeria/party-time/"
   },
   {
     title: "Ellery + Mitch",
     text: "Una emocionante unión en la playa.",
+    image: "https://harol2000.github.io/page_photography/images/624228533_122108712555204129_7475938911244930771_n.jpg",
+    link: "https://harol2000.github.io/page_photography/galeria/love-story/"
   },
   {
     title: "The Waltz go on",
     text: '"Uno de esos amores que son para siempre".',
+    image: "https://harol2000.github.io/page_photography/images/622620831_122108715999204129_4721692470404525508_n.jpg",
+    link: "https://harol2000.github.io/page_photography/galeria/wedding-day/"
   },
   {
     title: "Ev + Leo",
     text: "Una historia de película en NYC.",
+    image: "https://harol2000.github.io/page_photography/images/624406731_122108717193204129_4519717868385406808_n.jpg",
+    link: "https://harol2000.github.io/page_photography/galeria/trash-the-dress/"
   },
   {
     title: "Pamela + Bartolomé",
     text: '"Estamos destinados a pertenecernos".',
+    image: "https://harol2000.github.io/page_photography/images/622727017_122108717235204129_6272086216731972065_n.jpg",
+    link: "https://harol2000.github.io/page_photography/galeria/party-time/"
   },
 ];
 ---
@@ -103,14 +119,18 @@ const stories = [
       <p class="kicker">LOVE STORIES</p>
       <h2 class="stories-title">Una colección de historias</h2>
 
-      <div class="stories-grid">
-        {stories.map((story) => (
-          <article class="story-card">
-            <h3>{story.title}</h3>
-            <p>{story.text}</p>
-          </article>
-        ))}
-      </div>
+<div class="stories-grid">
+  {stories.map((story) => (
+    <article class="story-card">
+      <h3>{story.title}</h3>
+      <p>{story.text}</p>
+
+      <a href={story.link} class="story-image-link">
+        <img src={story.image} alt={story.title} class="story-image" />
+      </a>
+    </article>
+  ))}
+</div>
     </div>
   </section>
 
