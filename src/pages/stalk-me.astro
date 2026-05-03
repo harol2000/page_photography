@@ -1,0 +1,388 @@
+---
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import MainLayout from "../layouts/MainLayout.astro";
+
+const rawBase = import.meta.env.BASE_URL;
+const base = rawBase.endsWith("/") ? rawBase : `${rawBase}/`;
+
+const focusPoints = [
+  {
+    title: "Mi estilo",
+    text:
+      "Busco imágenes que se sientan vivas: luz natural, gestos espontáneos y una edición que abrace la emoción sin disfrazarla."
+  },
+  {
+    title: "Cómo trabajo",
+    text:
+      "Acompaño a cada pareja desde la calma, observando antes de dirigir y apareciendo cuando hace falta una guía sencilla y cercana."
+  },
+  {
+    title: "Cosas que me inspiran",
+    text:
+      "Las miradas que duran un segundo, el movimiento suave de un vestido, la música antes de entrar y el silencio justo antes del sí."
+  },
+  {
+    title: "Dato curioso",
+    text:
+      "Siempre llevo una libreta para anotar detalles mínimos del día. Muchas veces ahí nace la idea de la secuencia final."
+  }
+];
+---
+
+<MainLayout title="Stalk me | Tu Marca">
+  <Header />
+
+  <section class="stalk-hero">
+    <div class="container stalk-shell">
+      <div class="stalk-copy">
+        <p class="eyebrow">Stalk me</p>
+        <h1>Un poco sobre mí</h1>
+        <p class="lead">
+          Soy fotógrafo de bodas y me mueve capturar historias con una estética natural,
+          emocional y profundamente humana.
+        </p>
+        <p class="text">
+          Este espacio es un placeholder para contar quién soy, por qué hago lo que hago y cómo
+          acompaño a cada pareja en uno de los días más intensos de su vida. Aquí luego podrás
+          editar libremente mi historia, mi proceso y lo que más me importa al momento de
+          documentar una boda.
+        </p>
+
+        <div class="hero-tags">
+          <span>Fotógrafo de bodas</span>
+          <span>Estilo natural y emocional</span>
+          <span>Momentos reales</span>
+          <span>Acompañamiento a parejas</span>
+        </div>
+      </div>
+
+      <figure class="hero-frame">
+        <img
+          src={`${base}images/frank_profile.png`}
+          alt="Retrato editorial del fotografo"
+        />
+      </figure>
+    </div>
+  </section>
+
+  <section class="stalk-story section">
+    <div class="container story-shell">
+      <article class="story-manifesto">
+        <p class="section-label">Mi manera de mirar</p>
+        <h2>Quiero que cada pareja se reconozca en sus recuerdos, no en una pose prestada.</h2>
+        <p>
+          Mi enfoque está en acompañar, observar y construir confianza para que las imágenes
+          salgan desde lo real. Me interesa la emoción antes que la perfección, la conexión antes
+          que la rigidez y los pequeños detalles antes que el ruido.
+        </p>
+        <p>
+          También este bloque queda listo para que luego lo reemplaces por tu propia historia:
+          cómo empezaste, qué te define y qué quieres que la gente sienta al trabajar contigo.
+        </p>
+      </article>
+
+      <div class="story-collage">
+        <img
+          src={`${base}images/622355680_122108712249204129_3792481669558524118_n.jpg`}
+          alt="Escena natural de pareja"
+          class="collage-main"
+        />
+        <img
+          src={`${base}images/623917170_122108717205204129_8828546668175769016_n.jpg`}
+          alt="Detalle emocional"
+          class="collage-side"
+        />
+      </div>
+    </div>
+  </section>
+
+  <section class="section details-section">
+    <div class="container details-shell">
+      <div class="details-intro">
+        <p class="eyebrow">Mas de cerca</p>
+        <h2 class="title">La experiencia importa tanto como las fotos</h2>
+        <p class="text">
+          Desde la primera conversación hasta la entrega final, la idea es que se sientan
+          acompañados, tranquilos y con la libertad de vivir el día sin estar pendientes de la
+          cámara.
+        </p>
+      </div>
+
+      <div class="details-grid">
+        {focusPoints.map((item) => (
+          <article class="detail-card">
+            <h3>{item.title}</h3>
+            <p>{item.text}</p>
+          </article>
+        ))}
+      </div>
+
+      <figure class="quote-frame">
+        <img
+          src={`${base}images/624406731_122108717193204129_4519717868385406808_n.jpg`}
+          alt="Fotografia inspiracional"
+        />
+        <figcaption>
+          “Quiero que cuando vuelvas a estas fotos, sientas primero el momento y despues la
+          imagen.”
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <Footer />
+</MainLayout>
+
+<style>
+  .stalk-hero {
+    padding: 3rem 0 1.5rem;
+  }
+
+  .stalk-shell {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(320px, 0.92fr);
+    gap: 1.5rem;
+    align-items: stretch;
+  }
+
+  .stalk-copy,
+  .hero-frame {
+    border-radius: 28px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+  }
+
+  .stalk-copy {
+    padding: clamp(2rem, 4vw, 3.5rem);
+    background:
+      radial-gradient(circle at top left, rgba(138, 160, 160, 0.14), transparent 32%),
+      linear-gradient(135deg, #faf7f3 0%, #efe5dc 100%);
+    border: 1px solid #eadfd4;
+  }
+
+  .stalk-copy h1 {
+    font-size: clamp(3rem, 5vw, 5.2rem);
+    line-height: 0.92;
+    font-weight: 300;
+    color: #7f9696;
+    margin-bottom: 1rem;
+    max-width: 9ch;
+  }
+
+  .lead {
+    font-size: 1.18rem;
+    line-height: 1.85;
+    color: #4f4a45;
+    max-width: 36ch;
+    margin-bottom: 1rem;
+  }
+
+  .stalk-copy .text {
+    max-width: 58ch;
+    line-height: 1.9;
+  }
+
+  .hero-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1.6rem;
+  }
+
+  .hero-tags span {
+    padding: 0.78rem 1rem;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.72);
+    border: 1px solid rgba(138, 160, 160, 0.22);
+    color: #5f5851;
+    font-weight: 600;
+  }
+
+  .hero-frame {
+    min-height: 100%;
+    background: #ddd;
+  }
+
+  .hero-frame img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+  }
+
+  .story-shell {
+    display: grid;
+    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+    gap: 1.5rem;
+    align-items: center;
+  }
+
+  .story-manifesto {
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 28px;
+    padding: clamp(1.8rem, 4vw, 3rem);
+    box-shadow: var(--shadow);
+  }
+
+  .section-label {
+    font-size: 0.82rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #9b8f84;
+    margin-bottom: 1rem;
+  }
+
+  .story-manifesto h2 {
+    font-size: clamp(2.3rem, 3.6vw, 4rem);
+    line-height: 1.05;
+    font-weight: 300;
+    color: #7f9696;
+    margin-bottom: 1.1rem;
+    max-width: 13ch;
+  }
+
+  .story-manifesto p {
+    line-height: 1.9;
+    color: #56504a;
+    margin-bottom: 1rem;
+  }
+
+  .story-collage {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(180px, 0.8fr);
+    gap: 1rem;
+    align-items: stretch;
+  }
+
+  .story-collage img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 28px;
+    box-shadow: var(--shadow);
+  }
+
+  .collage-main {
+    min-height: 580px;
+  }
+
+  .collage-side {
+    min-height: 420px;
+    align-self: end;
+  }
+
+  .details-shell {
+    display: grid;
+    gap: 1.6rem;
+  }
+
+  .details-intro {
+    max-width: 760px;
+  }
+
+  .details-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .detail-card {
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 24px;
+    padding: 1.5rem;
+    box-shadow: var(--shadow);
+  }
+
+  .detail-card h3 {
+    font-size: 1.3rem;
+    color: #7f9696;
+    margin-bottom: 0.75rem;
+    font-weight: 500;
+  }
+
+  .detail-card p {
+    color: #58524c;
+    line-height: 1.8;
+  }
+
+  .quote-frame {
+    display: grid;
+    grid-template-columns: minmax(0, 1.12fr) minmax(280px, 0.88fr);
+    align-items: stretch;
+    background: #efe3d8;
+    border-radius: 28px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+  }
+
+  .quote-frame img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    min-height: 420px;
+  }
+
+  .quote-frame figcaption {
+    display: grid;
+    place-items: center;
+    padding: clamp(2rem, 4vw, 3rem);
+    text-align: center;
+    font-size: clamp(1.4rem, 2.4vw, 2.3rem);
+    line-height: 1.35;
+    color: #5e4b3e;
+    font-weight: 300;
+  }
+
+  @media (max-width: 1180px) {
+    .details-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 980px) {
+    .stalk-shell,
+    .story-shell,
+    .quote-frame {
+      grid-template-columns: 1fr;
+    }
+
+    .story-collage {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .collage-main,
+    .collage-side,
+    .quote-frame img {
+      min-height: 320px;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .stalk-hero {
+      padding-top: 2rem;
+    }
+
+    .stalk-copy h1 {
+      font-size: 2.6rem;
+    }
+
+    .story-collage,
+    .details-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .hero-tags span {
+      width: 100%;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .quote-frame figcaption {
+      font-size: 1.5rem;
+    }
+  }
+</style>
