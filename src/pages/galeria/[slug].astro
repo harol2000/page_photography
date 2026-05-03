@@ -1,9 +1,9 @@
 ---
-import MainLayout from "../../layouts/MainLayout.astro";
-import Header from "../../components/Header.astro";
-import Footer from "../../components/Footer.astro";
-import { galleries } from "../../data/galleries";
 import type { ImageMetadata } from "astro";
+import Footer from "../../components/Footer.astro";
+import Header from "../../components/Header.astro";
+import { galleries } from "../../data/galleries";
+import MainLayout from "../../layouts/MainLayout.astro";
 
 export async function getStaticPaths() {
   return galleries.map((gallery) => ({
@@ -26,12 +26,12 @@ const images: ImageMetadata[] = Object.entries(allImages)
 const imageUrls = images.map((img) => img.src);
 ---
 
-<MainLayout title={`${gallery.title} | Tu Marca`}>
+<MainLayout title={`${gallery.title} | Portafolio`}>
   <Header />
 
   <section class="section">
     <div class="container">
-      <p class="eyebrow">Galería</p>
+      <p class="eyebrow">Portafolio</p>
       <h1 class="title">{gallery.title}</h1>
       <p class="text intro">{gallery.description}</p>
 
@@ -44,7 +44,12 @@ const imageUrls = images.map((img) => img.src);
               data-index={index}
               aria-label={`Abrir imagen ${index + 1}`}
             >
-              <img src={image.src} alt={`${gallery.title} ${index + 1}`} loading="lazy" />
+              <img
+                src={image.src}
+                alt={`${gallery.title} ${index + 1}`}
+                loading="lazy"
+                style={`aspect-ratio: ${image.width} / ${image.height};`}
+              />
             </button>
           </figure>
         ))}
@@ -66,19 +71,19 @@ const imageUrls = images.map((img) => img.src);
           class="lightbox-autoplay"
           id="lightbox-autoplay"
           type="button"
-          aria-label="Activar o pausar reproducción automática"
+          aria-label="Activar o pausar reproduccion automatica"
         >
           Auto
         </button>
 
         <button class="lightbox-close" id="lightbox-close" type="button" aria-label="Cerrar">
-          ✕
+          x
         </button>
       </div>
     </div>
 
     <button class="lightbox-nav lightbox-prev" id="lightbox-prev" type="button" aria-label="Anterior">
-      ‹
+      &lt;
     </button>
 
     <div class="lightbox-stage">
@@ -86,7 +91,7 @@ const imageUrls = images.map((img) => img.src);
     </div>
 
     <button class="lightbox-nav lightbox-next" id="lightbox-next" type="button" aria-label="Siguiente">
-      ›
+      &gt;
     </button>
   </div>
 
@@ -192,15 +197,8 @@ const imageUrls = images.map((img) => img.src);
     });
 
     closeBtn.addEventListener("click", closeLightbox);
-
-    nextBtn.addEventListener("click", () => {
-      nextImage();
-    });
-
-    prevBtn.addEventListener("click", () => {
-      prevImage();
-    });
-
+    nextBtn.addEventListener("click", nextImage);
+    prevBtn.addEventListener("click", prevImage);
     autoplayBtn.addEventListener("click", toggleAutoplay);
 
     lightbox.addEventListener("click", (e) => {
@@ -249,12 +247,13 @@ const imageUrls = images.map((img) => img.src);
   }
 
   .gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1rem;
+    columns: 3 18rem;
+    column-gap: 1rem;
   }
 
   .gallery-item {
+    margin: 0 0 1rem;
+    break-inside: avoid;
     overflow: hidden;
     border-radius: 18px;
     box-shadow: var(--shadow);
@@ -272,10 +271,10 @@ const imageUrls = images.map((img) => img.src);
 
   .gallery-item img {
     width: 100%;
-    aspect-ratio: 4 / 5;
+    height: auto;
     object-fit: cover;
     display: block;
-    transition: transform .35s ease;
+    transition: transform 0.35s ease;
   }
 
   .gallery-btn:hover img {
@@ -286,7 +285,7 @@ const imageUrls = images.map((img) => img.src);
     position: fixed;
     inset: 0;
     background:
-      radial-gradient(circle at top, rgba(255,255,255,0.06), transparent 35%),
+      radial-gradient(circle at top, rgba(255, 255, 255, 0.06), transparent 35%),
       rgba(8, 8, 8, 0.96);
     display: none;
     z-index: 9999;
@@ -321,7 +320,7 @@ const imageUrls = images.map((img) => img.src);
     font-size: 0.72rem;
     text-transform: uppercase;
     letter-spacing: 0.18em;
-    color: rgba(255,255,255,0.72);
+    color: rgba(255, 255, 255, 0.72);
   }
 
   .lightbox-top-actions {
@@ -336,7 +335,7 @@ const imageUrls = images.map((img) => img.src);
   .lightbox-autoplay,
   .lightbox-close {
     border: 0;
-    background: rgba(255,255,255,0.12);
+    background: rgba(255, 255, 255, 0.12);
     color: white;
     backdrop-filter: blur(10px);
   }
@@ -355,7 +354,7 @@ const imageUrls = images.map((img) => img.src);
   }
 
   .lightbox-autoplay.is-active {
-    background: rgba(255,255,255,0.24);
+    background: rgba(255, 255, 255, 0.24);
   }
 
   .lightbox-close {
@@ -382,8 +381,8 @@ const imageUrls = images.map((img) => img.src);
     border-radius: 16px;
     opacity: 0;
     transform: scale(0.985);
-    transition: opacity .22s ease, transform .22s ease;
-    box-shadow: 0 20px 60px rgba(0,0,0,.35);
+    transition: opacity 0.22s ease, transform 0.22s ease;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
   }
 
   .lightbox-stage img.is-visible {
@@ -396,7 +395,7 @@ const imageUrls = images.map((img) => img.src);
     height: 56px;
     border-radius: 999px;
     border: 0;
-    background: rgba(255,255,255,0.14);
+    background: rgba(255, 255, 255, 0.14);
     color: white;
     cursor: pointer;
     font-size: 2rem;
@@ -416,18 +415,18 @@ const imageUrls = images.map((img) => img.src);
   .lightbox-nav:hover,
   .lightbox-close:hover,
   .lightbox-autoplay:hover {
-    background: rgba(255,255,255,0.22);
+    background: rgba(255, 255, 255, 0.22);
   }
 
   @media (max-width: 1100px) {
     .gallery-grid {
-      grid-template-columns: repeat(2, 1fr);
+      columns: 2 16rem;
     }
   }
 
   @media (max-width: 720px) {
     .gallery-grid {
-      grid-template-columns: 1fr;
+      columns: 1;
     }
 
     .lightbox.is-open {

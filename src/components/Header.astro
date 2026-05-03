@@ -1,6 +1,41 @@
+---
+const rawBase = import.meta.env.BASE_URL;
+const base = rawBase.endsWith("/") ? rawBase : `${rawBase}/`;
+const currentPath = Astro.url.pathname.endsWith("/")
+  ? Astro.url.pathname
+  : `${Astro.url.pathname}/`;
+
+const navItems = [
+  { label: "Inicio", route: "/" },
+  { label: "Stalk me", route: "/stalk-me/" },
+  { label: "Cinematics", route: "/cinematics/" },
+  { label: "Portafolio", route: "/portafolio/", aliases: ["/galeria/"] },
+  { label: "Testimonios", route: "/testimonios/" },
+  { label: "Paquetes", route: "/paquetes/" },
+  { label: "Contacto", route: "/contacto/" }
+];
+
+function withBase(route: string) {
+  if (route === "/") return base;
+  return `${base}${route.replace(/^\/|\/$/g, "")}/`;
+}
+
+function isActive(item: { route: string; aliases?: string[] }) {
+  const candidates = [item.route, ...(item.aliases ?? [])].map(withBase);
+
+  return candidates.some((candidate) => {
+    if (candidate === base) {
+      return currentPath === base;
+    }
+
+    return currentPath === candidate || currentPath.startsWith(candidate);
+  });
+}
+---
+
 <header class="header">
   <div class="container header-inner">
-    <a href="https://harol2000.github.io/page_photography/" class="brand">
+    <a href={withBase("/")} class="brand">
       <img
         src="https://harol2000.github.io/page_photography/images/LOGO_FRANKTUCNO.png"
         alt="Logo"
@@ -11,7 +46,7 @@
     <button
       class="menu-toggle"
       type="button"
-      aria-label="Abrir menú"
+      aria-label="Abrir menu"
       aria-expanded="false"
       aria-controls="mobile-menu"
     >
@@ -21,20 +56,20 @@
     </button>
 
     <nav class="nav desktop-nav">
-      <a href="https://harol2000.github.io/page_photography/" class="is-active">Inicio</a>
-      <a href="https://harol2000.github.io/page_photography/galeria/">Galería</a>
-      <a href="https://harol2000.github.io/page_photography/cinematics/">Cinematics</a>
-      <a href="https://harol2000.github.io/page_photography/paquetes/">Paquetes</a>
-      <a href="https://harol2000.github.io/page_photography/contacto/">Contacto</a>
+      {navItems.map((item) => (
+        <a href={withBase(item.route)} class={isActive(item) ? "is-active" : undefined}>
+          {item.label}
+        </a>
+      ))}
     </nav>
   </div>
 
   <nav class="mobile-nav" id="mobile-menu">
-    <a href="https://harol2000.github.io/page_photography/">Inicio</a>
-    <a href="https://harol2000.github.io/page_photography/galeria/">Galería</a>
-    <a href="https://harol2000.github.io/page_photography/cinematics/">Cinematics</a>
-    <a href="https://harol2000.github.io/page_photography/paquetes/">Paquetes</a>
-    <a href="https://harol2000.github.io/page_photography/contacto/">Contacto</a>
+    {navItems.map((item) => (
+      <a href={withBase(item.route)} class={isActive(item) ? "is-active" : undefined}>
+        {item.label}
+      </a>
+    ))}
   </nav>
 </header>
 
@@ -46,6 +81,13 @@
     toggle.addEventListener("click", () => {
       const isOpen = mobileMenu.classList.toggle("is-open");
       toggle.setAttribute("aria-expanded", String(isOpen));
+    });
+
+    mobileMenu.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        mobileMenu.classList.remove("is-open");
+        toggle.setAttribute("aria-expanded", "false");
+      });
     });
   }
 </script>
@@ -63,9 +105,9 @@
   .header-inner {
     min-height: 110px;
     display: grid;
-    grid-template-columns: auto 1fr auto;
+    grid-template-columns: auto minmax(0, 1fr) auto;
     align-items: center;
-    gap: 2rem;
+    gap: 1.6rem;
   }
 
   .brand {
@@ -85,17 +127,18 @@
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    gap: 2.2rem;
+    gap: 1rem;
     justify-self: center;
+    flex-wrap: wrap;
   }
 
   .nav a {
     position: relative;
-    padding-top: 1.6rem;
-    min-width: 110px;
+    padding-top: 1.35rem;
+    min-width: 82px;
     text-align: center;
     color: #8d8a84;
-    font-size: 1.05rem;
+    font-size: 0.95rem;
     font-weight: 400;
     transition: color 0.25s ease;
   }
@@ -106,7 +149,7 @@
     top: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 118px;
+    width: calc(100% - 10px);
     height: 2px;
     background: #6f7f7f;
     opacity: 0.55;
@@ -164,26 +207,26 @@
     font-size: 1rem;
   }
 
+  .mobile-nav a.is-active {
+    color: #8aa0a0;
+  }
+
   .mobile-nav.is-open {
     display: flex;
   }
 
-  @media (max-width: 1100px) {
+  @media (max-width: 1180px) {
     .nav {
-      gap: 1.2rem;
+      gap: 0.55rem;
     }
 
     .nav a {
-      min-width: 92px;
-      font-size: 0.98rem;
-    }
-
-    .nav a::before {
-      width: 92px;
+      min-width: 74px;
+      font-size: 0.88rem;
     }
   }
 
-  @media (max-width: 860px) {
+  @media (max-width: 980px) {
     .header-inner {
       min-height: 82px;
       grid-template-columns: 1fr auto;
